@@ -1,0 +1,424 @@
+package me.zhangls.rilintech.activity;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.res.AssetManager;
+import android.graphics.Color;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.GestureDetector;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import me.zhangls.rilintech.R;
+import me.zhangls.rilintech.model.CityModel;
+import me.zhangls.rilintech.model.DistrictModel;
+import me.zhangls.rilintech.model.ProvinceModel;
+import me.zhangls.rilintech.service.XmlParserHandler;
+import me.zhangls.rilintech.utils.NetUtils;
+import me.zhangls.rilintech.utils.SystemBarTintManager;
+
+/**
+ * Created by rilintech on 15/8/4.
+ */
+public class BaseActivity extends Activity implements NetBroadcastReceiver.netEventHandler {
+    /**
+     * 所有省
+     */
+    protected String[] mProvinceDatas;
+    /**
+     * 所有省id
+     */
+    protected String[] mProvinceDatasIds;
+    /**
+     * key - 省 value - 市
+     */
+    protected Map<String, String[]> mCitisDatasMap = new HashMap<String, String[]>();
+    /**
+     * key - 省 value - 市 id
+     */
+    protected Map<String, String[]> mCitisDatasIdsMap = new HashMap<String, String[]>();
+    protected Map<String,String> mCitisDatas_opposite_IdsMap = new HashMap<String,String>();
+    /**
+     * key - 市 values - 区
+     */
+    protected Map<String, String[]> mDistrictDatasMap = new HashMap<String, String[]>();
+
+    /**
+     * key - 市 values - 区 id
+     */
+    protected Map<String, String[]> mDistrictDatasIdsMap = new HashMap<String, String[]>();
+    protected Map<String,String> mDistrictDatas_opposite_IdsMap = new HashMap< String,String>();
+
+    /**
+     * key - 区 values - id
+     */
+    protected Map<String, String> mZipcodeDatasMap = new HashMap<String, String>();
+    protected Map<String, String> mZipcodeDatas_opposite_IdsMap = new HashMap<String, String>();
+
+    /**
+     * 当前省的名称
+     */
+    protected String mCurrentProviceName;
+    /**
+     * 当前省的id
+     */
+    protected String mCurrentProviceId;
+    /**
+     * 当前市的名称
+     */
+    protected String mCurrentCityName;
+    /**
+     * 当前市的id
+     */
+    protected String mCurrentCityId;
+    /**
+     * 当前区的名称
+     */
+    protected String mCurrentDistrictName = "";
+
+    /**
+     * 当前区的id
+     */
+    protected String mCurrentDistrictId = "";
+
+    //手指向右滑动时的最小速度
+    private static final int XSPEED_MIN = 200;
+
+    //手指向右滑动时的最小距离
+    private static final int XDISTANCE_MIN = 150;
+
+    //记录手指按下时的横坐标。
+    private float xDown;
+
+    //记录手指移动时的横坐标。
+    private float xMove;
+
+    //用于计算手指滑动的速度。
+    private VelocityTracker mVelocityTracker;
+    //网络提示框
+    private AlertDialog dialog;
+
+    private NetBroadcastReceiver receiver = null;
+
+
+    /**
+     * 解析省市区的XML数据
+     */
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //透明导航栏
+            // getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+
+            // 创建状态栏的管理实例
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            // 激活状态栏设置
+            tintManager.setStatusBarTintEnabled(true);
+            // 激活导航栏设置
+            //tintManager.setNavigationBarTintEnabled(true);
+            // 设置一个颜色给系统栏
+            tintManager.setTintColor(Color.parseColor("#990000FF"));
+            // 设置一个样式背景给导航栏
+            //tintManager.setNavigationBarTintResource(R.drawable.actionbar_background);
+            // 设置一个状态栏资源
+            // tintManager.setStatusBarTintDrawable(MyDrawable);
+            //tintManager.setStatusBarTintResource(R.drawable.actionbar_background);
+            tintManager.setStatusBarTintColor(0xff56abe4);
+        }
+        //添加到网络监听集合
+        NetBroadcastReceiver.mListeners.add(this);
+        //注册广播,监听网络
+        receiver = new NetBroadcastReceiver();
+        IntentFilter dynamic_filter = new IntentFilter();
+        dynamic_filter.addAction(NetBroadcastReceiver.NET_CHANGE_ACTION);
+        registerReceiver(receiver, dynamic_filter);
+
+    }
+
+    /**
+     * toast
+     *
+     * @param pMsg
+     */
+    protected void showMsg(String pMsg) {
+        Toast.makeText(this, pMsg, Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * 跳转界面
+     *
+     * @param pClass
+     */
+    protected void openActivity(Class<?> pClass) {
+        Intent _Intent = new Intent();
+        _Intent.setClass(this, pClass);
+        startActivity(_Intent);
+    }
+
+    /**
+     * 解析xml文件的省市区数据
+     */
+    protected void initProvinceDatas() {
+        List<ProvinceModel> provinceList = null;
+        AssetManager asset = getAssets();
+        try {
+            InputStream input = asset.open("province_data_1.xml");
+            // 创建一个解析xml的工厂对象
+            SAXParserFactory spf = SAXParserFactory.newInstance();
+            // 解析xml
+            SAXParser parser = spf.newSAXParser();
+            XmlParserHandler handler = new XmlParserHandler();
+            parser.parse(input, handler);
+            input.close();
+            // 获取解析出来的数据
+            provinceList = handler.getDataList();
+            //初始化默认选中的省、市、区
+            if (provinceList != null && !provinceList.isEmpty()) {
+                mCurrentProviceName = provinceList.get(0).getName();
+                mCurrentProviceId=provinceList.get(0).getId();
+                List<CityModel> cityList = provinceList.get(0).getCityList();
+                if (cityList != null && !cityList.isEmpty()) {
+                    mCurrentCityName = cityList.get(0).getName();
+                    mCurrentCityId = cityList.get(0).getId();
+                    List<DistrictModel> districtList = cityList.get(0).getDistrictList();
+                    mCurrentDistrictName = districtList.get(0).getName();
+                    mCurrentDistrictId = districtList.get(0).getId();
+                }
+            }
+
+            mProvinceDatas = new String[provinceList.size()];
+            mProvinceDatasIds = new String[provinceList.size()];
+            for (int i = 0; i < provinceList.size(); i++) {
+                // 遍历所有省的数据
+                mProvinceDatas[i] = provinceList.get(i).getName();
+                mProvinceDatasIds[i] = provinceList.get(i).getId();
+                List<CityModel> cityList = provinceList.get(i).getCityList();
+                String[] cityNames = new String[cityList.size()];
+                String[] cityIds = new String[cityList.size()];
+                for (int j = 0; j < cityList.size(); j++) {
+                    // 遍历省下面的所有市的数据
+                    cityNames[j] = cityList.get(j).getName();
+                    cityIds[j] = cityList.get(j).getId();
+
+                    List<DistrictModel> districtList = cityList.get(j).getDistrictList();
+                    String[] distrinctNameArray = new String[districtList.size()];
+                    DistrictModel[] distrinctArray = new DistrictModel[districtList.size()];
+                    for (int k = 0; k < districtList.size(); k++) {
+                        // 遍历市下面所有区/县的数据
+                        DistrictModel districtModel = new DistrictModel(districtList.get(k).getName(), districtList.get(k).getId());
+                        // 区/县对于的邮编，保存到mZipcodeDatasMap
+                        mZipcodeDatasMap.put(districtList.get(k).getName(), districtList.get(k).getId());
+                        mZipcodeDatas_opposite_IdsMap.put(districtList.get(k).getId(),districtList.get(k).getName());
+
+                        distrinctArray[k] = districtModel;
+                        distrinctNameArray[k] = districtModel.getName();
+                    }
+                    // 市-区/县的数据，保存到mDistrictDatasMap
+                    mDistrictDatasMap.put(cityNames[j], distrinctNameArray);
+                    mDistrictDatasIdsMap.put(cityNames[j], cityIds);
+                    mDistrictDatas_opposite_IdsMap.put(cityIds[j],cityNames[j]);
+                }
+                // 省-市的数据，保存到mCitisDatasMap
+                mCitisDatasMap.put(provinceList.get(i).getName(), cityNames);
+                mCitisDatasIdsMap.put(provinceList.get(i).getName(),cityIds);
+                mCitisDatas_opposite_IdsMap.put(mProvinceDatasIds[i], provinceList.get(i).getName());
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        } finally {
+
+        }
+    }
+
+    //============以下是滑动返回代码=============
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            finish();
+            overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
+    }
+
+    private GestureDetector mGestureDetector;
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        createVelocityTracker(event);
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+                xDown = event.getRawX();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                xMove = event.getRawX();
+                //活动的距离
+                int distanceX = (int) (xMove - xDown);
+                //获取顺时速度
+                int xSpeed = getScrollVelocity();
+                //当滑动的距离大于我们设定的最小距离且滑动的瞬间速度大于我们设定的速度时，返回到上一个activity
+                if (distanceX > XDISTANCE_MIN && xSpeed > XSPEED_MIN) {
+                    finish();
+                    overridePendingTransition(R.anim.in_from_left, R.anim.out_to_right);
+
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                recycleVelocityTracker();
+                break;
+            default:
+                break;
+        }
+        return super.onTouchEvent(event);
+    }
+
+    /**
+     * 创建VelocityTracker对象，并将触摸content界面的滑动事件加入到VelocityTracker当中。
+     *
+     * @param event
+     */
+    private void createVelocityTracker(MotionEvent event) {
+        if (mVelocityTracker == null) {
+            mVelocityTracker = VelocityTracker.obtain();
+        }
+        mVelocityTracker.addMovement(event);
+    }
+
+    /**
+     * 回收VelocityTracker对象。
+     */
+    private void recycleVelocityTracker() {
+        mVelocityTracker.recycle();
+        mVelocityTracker = null;
+    }
+
+    /**
+     * 获取手指在content界面滑动的速度。
+     *
+     * @return 滑动速度，以每秒钟移动了多少像素值为单位。
+     */
+    private int getScrollVelocity() {
+        mVelocityTracker.computeCurrentVelocity(1000);
+        int velocity = (int) mVelocityTracker.getXVelocity();
+        return Math.abs(velocity);
+    }
+
+
+    //============以上是滑动返回代码===================
+
+
+    /**
+     * 网络请求
+     *
+     * @param
+     */
+
+//    protected void executeRequest(Request request) {
+//        RequestManager.addRequest(request, this);
+//    }
+//
+//    protected Response.ErrorListener errorListener() {
+//        return new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                showMsg(error.getMessage());
+//            }
+//        };
+//    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //  RequestManager.cancelAll(this);
+        unregisterReceiver(receiver);
+    }
+
+
+    /**
+     * 监听网络变化
+     */
+    @Override
+    public void onNetChange() {
+
+        if (NetUtils.getNetworkState(this) == NetUtils.NETWORN_NONE) {
+            //保证dialog只有一个
+            if (dialog == null) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                View view1 = getLayoutInflater().inflate(R.layout.dialog_layout, null);
+
+                TextView title = (TextView) view1.findViewById(R.id.title);
+                title.setText("没有网络连接，是否前往设置？");
+                TextView delete = (TextView) view1.findViewById(R.id.delete);
+                delete.setVisibility(View.GONE);
+                TextView line = (TextView) view1.findViewById(R.id.line1);
+                line.setVisibility(View.GONE);
+                TextView add = (TextView) view1.findViewById(R.id.add);
+                add.setText("确认");
+                TextView edit = (TextView) view1.findViewById(R.id.edit);
+                edit.setText("取消");
+
+                builder.setCancelable(false);
+                dialog = builder.show();
+                dialog.getWindow().setContentView(view1);
+
+                //新建
+                add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                        NetUtils.openSetting(BaseActivity.this);
+                    }
+                });
+                //编辑
+                edit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+            }
+
+        } else {
+            //当网络重新连接后要及时重新获取数据
+            try {
+                //如果网络提示还存在则关掉
+                if (dialog != null) {
+                    dialog.dismiss();
+                    dialog = null;
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+}

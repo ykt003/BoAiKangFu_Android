@@ -1,0 +1,221 @@
+package me.zhangls.rilintech.adapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
+import me.zhangls.rilintech.R;
+import me.zhangls.rilintech.model.NormalTableModel;
+
+/**
+ * Created by YANG on 15/11/23.
+ */
+public class TableInfoNormalAdapter extends BaseAdapter {
+
+    private static final String TEXTVIEW = "Textview";
+    private static final String SPINNER = "Spinner";
+    private static final String RADIOGROUP = "Radiogroup";
+    private static final String MAXTEXT = "Maxtext";
+    private static final String EDITTEXT = "Edittext";
+
+    private Context mContext;
+    private int ITEM_LAYOUT_ID = -1;
+    private LayoutInflater inflater;
+    //item布局的类型
+    private String type = "";
+    //EditText布局
+    private TextView et_question;
+    private EditText et_answer;
+    private TextView et_unit;
+    //段落式的EditText布局
+    private TextView lt_question;
+    private EditText lt_answer;
+    //RadioGroup布局
+    private TextView rg_question;
+    private RadioGroup rg_answer;
+    //Spinner布局
+    private TextView sp_question;
+    private Spinner sp_answer;
+    private List<String>sp_list_value;
+    private SpinnerBaseAdapter adapter;
+    //TextView布局
+    private TextView tv_question;
+    private TextView tv_value;
+    private TextView tv_unit;
+    //model集合
+    private List<NormalTableModel>list_info;
+
+    public TableInfoNormalAdapter(Context context,List<NormalTableModel>list_info){
+        this.mContext = context;
+        this.list_info = list_info;
+        this.inflater = LayoutInflater.from(context);
+
+    }
+
+    @Override
+    public int getCount() {
+        return list_info.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return list_info.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        //获取加载类型
+        type = list_info.get(position).getType();
+        switch (type){
+            case EDITTEXT:
+                ITEM_LAYOUT_ID = R.layout.item_app_edittext_layout;
+                break;
+            case MAXTEXT:
+                ITEM_LAYOUT_ID = R.layout.item_app_labletext_layout;
+                break;
+            case RADIOGROUP:
+                ITEM_LAYOUT_ID = R.layout.item_app_radiogroup_layout;
+                break;
+            case SPINNER:
+                ITEM_LAYOUT_ID = R.layout.item_app_spinner_layout;
+                break;
+            case TEXTVIEW:
+                ITEM_LAYOUT_ID = R.layout.item_app_textview_layout;
+                break;
+
+        }
+        convertView = inflater.inflate(ITEM_LAYOUT_ID,null);
+        //初始化控件
+        initView(type,convertView);
+        //给控件赋值
+        initData(type,position);
+
+        return convertView;
+    }
+
+
+    private void initView(String type,View convertView){
+
+        switch (type){
+            case EDITTEXT:
+                et_question = (TextView) convertView.findViewById(R.id.tv_question);
+                et_answer = (EditText) convertView.findViewById(R.id.et_value);
+                et_unit = (TextView) convertView.findViewById(R.id.tv_unit);
+                break;
+            case MAXTEXT:
+                lt_question = (TextView) convertView.findViewById(R.id.tv_question);
+                lt_answer = (EditText) convertView.findViewById(R.id.et_value);
+                break;
+            case RADIOGROUP:
+                rg_question = (TextView) convertView.findViewById(R.id.tv_question);
+                rg_answer = (RadioGroup) convertView.findViewById(R.id.radiogroup);
+                break;
+            case SPINNER:
+                sp_question = (TextView) convertView.findViewById(R.id.tv_value);
+                sp_answer = (Spinner) convertView.findViewById(R.id.sp_value);
+                sp_list_value = new ArrayList<>();
+                break;
+            case TEXTVIEW:
+                tv_question = (TextView) convertView.findViewById(R.id.tv_question);
+                tv_value = (TextView) convertView.findViewById(R.id.et_value);
+                tv_unit = (TextView) convertView.findViewById(R.id.tv_unit);
+                break;
+        }
+
+    }
+
+    private void initData(String type,int position){
+
+        switch (type){
+            case EDITTEXT:
+                initEditTextLayout(position);
+                break;
+            case MAXTEXT:
+                initLableTextLayout(position);
+                break;
+            case RADIOGROUP:
+                initRadioGroupLayout(position);
+                break;
+            case SPINNER:
+                initSpinnerLayout(position);
+                break;
+            case TEXTVIEW:
+                initTextViewLayout(position);
+                break;
+
+        }
+
+    }
+    //EditText布局
+    private void initEditTextLayout(int position){
+        et_question.setText(list_info.get(position).getLeftText());
+        et_answer.setText(list_info.get(position).getMiddleText());
+        et_unit.setText(list_info.get(position).getRightText());
+
+    }
+    //段落式的EditText布局
+    private void initLableTextLayout(int position){
+        lt_question.setText(list_info.get(position).getLeftText());
+        if (list_info.get(position).getDicText()!=null){
+            String str = "";
+            for (int i=0;i<list_info.get(position).getDicText().size();i++){
+                str += list_info.get(position).getDicText().get(i) + "\n";
+            }
+            lt_answer.setText(str);
+        }
+
+    }
+    //RadioGroup布局
+    private void initRadioGroupLayout(int position){
+        rg_question.setText(list_info.get(position).getLeftText());
+
+        for (int i=0;i<rg_answer.getChildCount();i++){
+            View view = rg_answer.getChildAt(i);
+            if (view instanceof RadioButton) {
+                ((RadioButton) view).setText(list_info.get(position).getDicText().get(i));
+            }
+        }
+    }
+    //Spinner布局
+    private void initSpinnerLayout(int position){
+        sp_question.setText(list_info.get(position).getLeftText());
+        sp_list_value = list_info.get(position).getDicText();
+        adapter = new SpinnerBaseAdapter(mContext, android.R.layout.simple_spinner_item, sp_answer, sp_list_value);
+        adapter.setDropDownViewResource(R.layout.item_spinner_layout);
+        sp_answer.setAdapter(adapter);
+        sp_answer.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String spinner_value = sp_list_value.get(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+    //TextView布局
+    private void initTextViewLayout(int position){
+        tv_question.setText(list_info.get(position).getLeftText());
+        tv_value.setText(list_info.get(position).getMiddleText());
+        tv_unit.setText(list_info.get(position).getRightText());
+    }
+
+
+}

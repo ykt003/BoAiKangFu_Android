@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="58dp"
+        android:layout_marginRight="58dp">
+
+        <ImageView
+            android:id="@+id/ic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="21dp"
+            android:src="@drawable/logo" />
+
+        <RelativeLayout
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ic"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:id="@+id/user_name_rl"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+
+                android:background="@color/white"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/user" />
+
+                <EditText
+                    android:id="@+id/user_name"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:hint="@string/user_name"
+                    android:paddingLeft="30dp"
+                    android:inputType="textFilter"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:textSize="@dimen/text_size_16" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/line"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/user_name_rl"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/gray_text" />
+
+            <RelativeLayout
+                android:id="@+id/password_rl"
+                android:layout_width="fill_parent"
+                android:layout_height="38dp"
+                android:layout_below="@+id/line"
+                android:background="@color/white"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/lock" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="30dp"
+                    android:background="@null"
+                    android:singleLine="true"
+                    android:textSize="@dimen/text_size_16" />
+
+                <ImageView
+                    android:id="@+id/invisible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="visible"
+                    android:src="@drawable/invisible" />
+
+                <ImageView
+                    android:id="@+id/visible"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="invisible"
+                    android:src="@drawable/visible"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="fill_parent"
+            android:layout_height="38dp"
+            android:layout_below="@+id/text"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_border_login"
+            android:gravity="center"
+            android:text="@string/login"
+            android:onClick="login"
+            android:textColor="@color/lightblue"
+            android:textSize="@dimen/text_size_16" />
+    </RelativeLayout>
+
+</RelativeLayout><!-- From: file:/Users/rilintech/Desktop/AndroidStudioProjects/beijing_boaikangfu_android_new/app/src/main/res/layout/activity_login.xml -->

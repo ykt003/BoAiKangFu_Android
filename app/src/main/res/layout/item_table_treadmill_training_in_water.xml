@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gpb="http://schemas.android.com/apk/res-auto"
+    xmlns:match="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:background="@android:color/white"
+    >
+    <RelativeLayout
+        android:id="@+id/relativelayout1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tittle_height"
+        android:background="@color/background">
+        <ImageView
+            android:id="@+id/training_in_water_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/tittle_marginRight"
+            android:src="@drawable/medical_history_record_back"
+            android:onClick="back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/treadmill_training_in_water"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tittle_textsize" />
+
+        <ImageView
+            android:id="@+id/training_in_water_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/tittle_marginRight"
+            android:src="@drawable/add"
+            android:onClick="add"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_below="@+id/relativelayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/index_layout_marginTop"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/listview_tittle_height"
+            android:background="@color/background_listView_tittle"
+            android:orientation="horizontal"
+            android:layout_marginLeft="@dimen/index_layout_marginLeft"
+            android:layout_marginRight="@dimen/index_layout_marginRight"
+            >
+
+            <TextView
+                android:id="@+id/item_common_use_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="3"
+                android:gravity="center_vertical|center_horizontal"
+                android:singleLine="true"
+                android:text="@string/trainning_in_water_date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:src="@drawable/septal_line_white" />
+
+            <TextView
+                android:id="@+id/item_common_use_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="3"
+                android:gravity="center_vertical|center_horizontal"
+                android:singleLine="true"
+                android:text="@string/treat_date"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center_vertical|center_horizontal"
+                android:src="@drawable/septal_line_white" />
+
+            <TextView
+                android:id="@+id/item_common_use_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:layout_weight="3"
+                android:gravity="center_vertical|center_horizontal"
+                android:singleLine="true"
+                android:text="@string/set_speed"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16"/>
+        </LinearLayout>
+        <!--<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.zhangls.zlistview.widget.ZListView
+                android:id="@+id/patient_infos_list_item"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:listSelector="@color/white"
+                android:divider="@drawable/divider"
+                android:cacheColorHint="@android:color/transparent"/>
+        </LinearLayout>-->
+    </LinearLayout>
+    <FrameLayout
+        android:layout_below="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/index_layout_marginLeft"
+        android:layout_marginRight="@dimen/index_layout_marginRight"
+        android:layout_marginBottom="@dimen/index_layout_marginBottom"
+        >
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <!--<me.zhangls.rilintech.view.AutoLoadRecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                />-->
+            <com.zhangls.swipemenulistview.SwipeMenuListView
+                android:id="@+id/training_in_water_list_item"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:listSelector="@color/white"
+                android:divider="@drawable/divider"
+                android:scrollbars="none"
+                android:cacheColorHint="@android:color/transparent"/>
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <!--<include-->
+            <!--android:id="@+id/error_msg"-->
+            <!--layout="@layout/commont_nothing_error"-->
+            <!--/>-->
+        <me.zhangls.rilintech.view.matchview.MatchTextView
+            android:id="@+id/tv_no_thing"
+            android:layout_width="wrap_content"
+            match:text="No comments"
+            match:textSize="8sp"
+            android:layout_gravity="center"
+            match:textColor="#000000"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+        </me.zhangls.rilintech.view.matchview.MatchTextView>
+
+        <me.zhangls.rilintech.view.matchview.MatchTextView
+            android:id="@+id/tv_error"
+            android:layout_width="wrap_content"
+            match:text="ERROR"
+            match:textSize="8sp"
+            android:layout_gravity="center"
+            match:textColor="#000000"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+        </me.zhangls.rilintech.view.matchview.MatchTextView>
+
+        <me.zhangls.rilintech.view.googleprogressbar.GoogleProgressBar
+            android:id="@+id/google_progress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            gpb:type="folding_circles"/>
+
+    </FrameLayout>
+
+
+</RelativeLayout>

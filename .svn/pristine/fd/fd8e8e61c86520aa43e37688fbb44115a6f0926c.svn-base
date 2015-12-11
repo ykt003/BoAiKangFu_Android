@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\libs\android-async-http-1.4.8.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="77bbfe240e437ecb396d982afa0d3bd4f9090ba7">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\android-async-http-1.4.8-3f597a4219eeb1862cf3ae680a10352fb9ed5e9e.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-1126dbca9ccb015e66132ef37d58e5a1a079bc7c.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\exploded-aar\beijing_boaikangfu_android\library\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="e6c6b447462c0e14d22b11398137fcd5a26a9f51">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\classes-876302a92dcae6cb7a7e6d6635e676ea6674591b.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\.gradle\caches\modules-2\files-2.1\de.greenrobot\eventbus\2.4.0\ddd166d01b3158d1c00576d29f7ed15c030df719\eventbus-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="ddd166d01b3158d1c00576d29f7ed15c030df719">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\eventbus-2.4.0-0a106bc4312828ec13fe338b4b95acda90e17201.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\libs\universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.3-ab2c8e7ac84e6de2787c121698f0f61405d7e41f.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\libs\umeng-update-v2.6.0.1.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="7bfeea30c4995f90a4374ce4177772a4579f2797">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\umeng-update-v2.6.0.1-1ab92282c997afc77eb9159eb07cba4bcd3c91f9.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\libs\commons-lang-2.4.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="16313e02a793435009f1e458fa4af5d879f6fb11">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\commons-lang-2.4-eb2730876593cfa86ed8a7ad39fefe16bc92b187.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="40e7757d9b06db670062ddb3cf5b30c129b2fd8c">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\classes-b9fde3f9c7b4d38771ccbf113871de8678f39471.jar" />
+    </item>
+    <item
+        jar="D:\android-sdk-windows\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-06ad90457e9511b5dc4d2cbcd484d3bc353c137c.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\.gradle\caches\modules-2\files-2.1\com.mcxiaoke.volley\library\1.0.19\a8f23f65fc1e522ee4a1a697ee569901a46741fa\library-1.0.19.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="a8f23f65fc1e522ee4a1a697ee569901a46741fa">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\library-1.0.19-b83d52a98913016ee936b5778dbb8def3c1a0f9b.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="4fcf0b1879f8caf497c073e1432d398e9e2988c1">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\classes-fefbd3ea6fd5e380aca9967ee36a36c1b01b3fe0.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\classes-1ee9faf9679b5434a78594db3d5d64e4267df960.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\libs\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="973e832af433b44c3ed11c426f2f390b29f3f3f8">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\gson-2.2.4-92a02f6a50b1371733453c4b57af41937ec62bce.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\exploded-aar\com.afollestad\material-dialogs\0.7.9.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="278810b7c706bc3786d4dcb3f93f9afbb49e7c9a">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\classes-30f892c0e35a3ba21675a8333b52e77eef60341c.jar" />
+    </item>
+    <item
+        jar="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\libs\armeabi.jar"
+        jumboMode="false"
+        revision="22.0.0"
+        sha1="d1be837f628de4d046d91ba402ee0ae9b17bc5a0">
+        <dex dex="C:\Users\ykt003\Desktop\working_copies\beijing_boaikangfu_android\app\build\intermediates\pre-dexed\debug\armeabi-4ac0923d1219ff89bd48e14ba16fad9f359ab010.jar" />
+    </item>
+
+</items>

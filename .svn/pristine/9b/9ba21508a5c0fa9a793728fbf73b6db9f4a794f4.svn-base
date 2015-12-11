@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gpb="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/tittle_height"
+        android:background="@color/background">
+
+        <ImageView
+            android:id="@+id/tittle_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/tittle_marginLeft"
+            android:src="@drawable/medical_history_record_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/bt_title"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tittle_textsize" />
+
+        <ImageView
+            android:id="@+id/patient_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/tittle_marginRight"
+            android:src="@drawable/edit"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/patient_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/tittle_marginRight"
+            android:src="@drawable/save" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/table_index_top"
+            android:layout_marginBottom="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:clipToPadding="true"
+            android:paddingBottom="20dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="35dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/alyn1_date"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <TextView
+                        android:id="@+id/date_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:background="@drawable/sousuo_et_bg"
+                        android:gravity="center_vertical"
+                        android:inputType="textCapSentences"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_instructions"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/alyn1_instructions"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <Spinner
+                        android:id="@+id/spinner_edit"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:background="@drawable/sousuo_et_bg"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_title1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/barthel_tilte_1"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/barthel_title1_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:id="@+id/barthel_title1_rb1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte1_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15"
+                            android:visibility="gone"/>
+
+                        <RadioButton
+                            android:id="@+id/barthel_title1_rb2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte1_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title1_rb3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte1_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title1_rb4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte1_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_title2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/barthel_tilte_2"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/barthel_title2_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:id="@+id/barthel_title2_rb1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte2_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title2_rb2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte2_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_title3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/barthel_tilte_3"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/barthel_title3_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:id="@+id/barthel_title3_rb1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte3_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title3_rb2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte3_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_title4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/barthel_tilte_4"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/barthel_title4_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:id="@+id/barthel_title4_rb1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte4_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title4_rb2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte4_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title4_rb3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte4_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_title5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/barthel_tilte_5"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/barthel_title5_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:id="@+id/barthel_title5_rb1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte5_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title5_rb2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte5_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title5_rb3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte5_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_title6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/barthel_tilte_6"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/barthel_title6_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:id="@+id/barthel_title6_rb1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte6_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title6_rb2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte6_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title6_rb3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte6_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_title7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/barthel_tilte_7"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/barthel_title7_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:id="@+id/barthel_title7_rb1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte7_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title7_rb2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte7_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title7_rb3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte7_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_title8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/barthel_tilte_8"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/barthel_title8_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:id="@+id/barthel_title8_rb1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte8_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title8_rb2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte8_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title8_rb3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte8_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title8_rb4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte8_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_title9"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/barthel_tilte_9"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/barthel_title9_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:id="@+id/barthel_title9_rb1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte9_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title9_rb2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte9_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title9_rb3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte9_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title9_rb4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte9_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_title10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/barthel_tilte_10"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/barthel_title10_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:id="@+id/barthel_title10_rb1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte10_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title10_rb2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte10_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:id="@+id/barthel_title10_rb3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:text="@string/barthel_tilte10_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/barthel_total_scores"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:width="150dp"
+                        android:text="@string/alyn1_total_scores"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16"
+                        android:visibility="gone" />
+
+                    <Button
+                        android:id="@+id/barthel_total_scores_bt"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_border"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/index_layout_marginLeft"
+                        android:text="@string/alyn1_total_scores"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <TextView
+                        android:id="@+id/barthel_total_scores_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/sousuo_et_bg"
+                        android:gravity="center_vertical"
+                        android:inputType="textCapSentences"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+        <me.zhangls.rilintech.view.googleprogressbar.GoogleProgressBar
+            android:id="@+id/google_progress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            gpb:type="folding_circles" />
+    </FrameLayout>
+
+</LinearLayout>

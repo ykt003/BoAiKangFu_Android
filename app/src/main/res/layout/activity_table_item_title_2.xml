@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/abc_edit_text_inset_top_material"
+        android:background="@color/background_listView_tittle"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/part"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="2"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text="@string/gmfm_project"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_vertical|center_horizontal"
+            android:src="@drawable/septal_line_white" />
+
+        <TextView
+            android:id="@+id/fugl_meyer_assessment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_weight="1"
+            android:gravity="center_vertical|center_horizontal"
+            android:singleLine="true"
+            android:text="@string/gmfm_score"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_16" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,1240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/tittle_height"
+        android:background="@color/background">
+
+        <ImageView
+            android:id="@+id/tittle_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/tittle_marginLeft"
+            android:src="@drawable/medical_history_record_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Alyn 水中适应性测试量表(WOTA1)"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tittle_textsize" />
+
+        <ImageView
+            android:id="@+id/patient_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/tittle_marginRight"
+            android:src="@drawable/edit"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/patient_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/tittle_marginRight"
+            android:src="@drawable/save" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/table_index_top"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:clipToPadding="true"
+        android:paddingBottom="20dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="35dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_date"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_16" />
+
+                <TextView
+                    android:id="@+id/alyn1_date_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:background="@drawable/sousuo_et_bg"
+                    android:gravity="center_vertical"
+                    android:inputType="textCapSentences"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_instructions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_instructions"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <Spinner
+                android:id="@+id/medical_history_relator_edit"
+                android:layout_width="0dp"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:width="150dp"
+                android:background="@drawable/sousuo_et_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:singleLine="true"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/text_size_15" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title1"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title1_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title1_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1—哭泣, 抗拒"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title1_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2—害怕，紧贴指导者，可能会间歇恢复平静"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title1_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3—稍有迟疑或态度淡漠"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title1_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4— 欣然进入泳池"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title2"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title2_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title2_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1—指导者在躯干处给予支持"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title2_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2—指导者在前臂或上肢给予支持，或在手部给予支持但双肘屈曲"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title2_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3—指导者只在手部给予支持，双肘不屈曲"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title2_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4—独立（双臂前伸，头部跟随）"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title3"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title3_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title3_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 不能启动和/或因为虚弱不能执行"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title3_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2—可以启动，爬出水面，需要辅助（坐下时需要/不需要辅助）"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title3_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3—爬出水面，无需支持，但不能独立坐下"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title3_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4— 独立完成，抬升自身并正确地坐下"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title4"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title4_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title4_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 呛水或抗拒或无法启动或存在将口浸入水中的禁忌症"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title4_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2— 能将口浸入水中但不能吹气泡但也不会呛水"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title4_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3—经口吹气泡"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title4_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4— 经鼻吹气泡"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title5"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title5_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title5_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 极度抗拒，可以执行侧屈，但拒绝将耳朵放入水中"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title5_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2—轻度抗拒，可以执行侧屈，耳朵在水下"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title5_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3— 因虚弱不能启动或漂浮或恢复，但在全力支持下不抗拒漂浮 "
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title5_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4—在以下部位的侧面提供支持：骨盆/腰部/躯干上部——启动漂浮（耳朵没入水下）并回到垂直位"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title6"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title6_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title6_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 极度抗拒，不将双耳浸于水中，屈曲头部/骨盆/躯干（试图站起）"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title6_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2— 轻度抗拒，双耳浸于水中，不够放松并试图站起"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title6_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3— 因虚弱不能启动或漂浮或恢复，但在全力支持下不抗拒漂浮"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title6_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4— 在以下部位的侧面提供支持：骨盆/腰部/躯干上部——启动漂浮，放松，回到垂直位"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title7"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title7_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title7_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 不能执行"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title7_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2— 溅水，对水没感觉"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title7_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3— 小心翼翼地溅水，水花溅到面部时畏缩"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title7_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4— 用双手和/或双腿，水花溅到面部时不畏缩"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title8"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title8_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title8_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 拒绝将脸移向水中或存在头部浸入水中的禁忌症"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title8_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2— 不抗拒或能够启动将脸移向水面的动作，呼吸控制不充分"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title8_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3— 能将脸浸入水中并控制呼吸，无支持下在水中保持一小段时间（1-2秒）"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title8_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4— 潜入深处捡起物体并自己站起来（在/不在治疗师的帮助下）"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title9"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title9_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title9_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 不能，双肩下垂和/或缺少头部控制和/或恐惧脱离"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title9_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2— 能够，在整个胳膊下提供支持"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title9_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3— 能够，在前臂下及手部提供支持，或在手部提供支持，双臂屈曲"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title9_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4— 能够，在手部下提供支持，双臂向前或向侧方伸直"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title10"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title10_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title10_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 不能启动动作或不能从墙壁脱离"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title10_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2— 能够，启动时需要在手部及躯干处给予支持。不施加帮助时不能抓住池边"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title10_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3— 能够，启动时需要在手部及躯干处给予支持。不需帮助便可抓住池边"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title10_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4— 能够，无需支持"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title11"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title11_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title11_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 指导者在躯干处给予支持，或不能站立"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title11_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2— 扶扶手和/或指导者在双手处给予支持"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title11_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3— 能够站立/行走10秒左右，然后倒下"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title11_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4—能够长时间站立/行走（在监督下）"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title12"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title12_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title12_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 不能握住绳索：不能或者无法启动"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title12_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2— 摇摆时需要在躯干侧面给予支持——10秒"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title12_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3— 摇摆时双手抓握——10秒，仰卧漂浮位或直立位"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title12_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4— 通过双手交替运动前进或侧向前进1米"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_title13"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_title13"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn1_title13_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title13_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="1— 拒绝脱离，紧贴指导者或需要在躯干上部侧面给予全力支持"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title13_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2— 需要在躯干上部侧面给予轻度支持"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title13_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3— 需要在腰部给予轻度支持"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn1_title13_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="4— 需要在骨盆处给予轻度支持"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_total_scores"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:width="150dp"
+                    android:text="@string/alyn1_total_scores"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/alyn1_total_scores_bt"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/index_layout_marginLeft"
+                    android:text="@string/alyn1_total_scores"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_15" />
+
+                <TextView
+                    android:id="@+id/alyn1_total_scores_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/sousuo_et_bg"
+                    android:gravity="center_vertical"
+                    android:inputType="textCapSentences"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_total_scores_centesmal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_total_scores_centesmal"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/alyn1_total_scores_centesmal_bt"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/index_layout_marginLeft"
+                    android:text="@string/alyn1_total_scores_centesmal"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_15" />
+
+                <TextView
+                    android:id="@+id/alyn1_total_scores_centesmal_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/sousuo_et_bg"
+                    android:gravity="center_vertical"
+                    android:inputType="textCapSentences"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+package me.zhangls.rilintech.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Model_two implements Parcelable{
+	private String header;
+	private ArrayList<Model_three> questions=new ArrayList<Model_three>();
+
+	public static final Creator<Model_two> CREATOR = new Creator<Model_two>() {
+		@Override
+		public Model_two createFromParcel(Parcel in) {
+			Model_two model_two=new Model_two();
+			model_two.header=in.readString();
+			model_two.questions=in.readArrayList(Model_three.class.getClassLoader());
+			return model_two;
+		}
+
+		@Override
+		public Model_two[] newArray(int size) {
+			return new Model_two[size];
+		}
+	};
+
+	public String getHeader() {
+		return header;
+	}
+	public void setHeader(String header) {
+		this.header = header;
+	}
+	public List<Model_three> getQuestions() {
+		return questions;
+	}
+	public void setQuestions(ArrayList<Model_three> questions) {
+		this.questions = questions;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(header);
+		dest.writeList(questions);
+	}
+}

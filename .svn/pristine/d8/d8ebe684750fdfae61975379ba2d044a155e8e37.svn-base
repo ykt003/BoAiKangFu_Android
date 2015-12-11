@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SpinnerLoader"><attr format="color" name="point_color"/><attr format="boolean" name="isdynamic"/></declare-styleable>
+</resources>

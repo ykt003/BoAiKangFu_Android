@@ -1,0 +1,55 @@
+package me.zhangls.rilintech.activity;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.WindowManager;
+
+import me.zhangls.rilintech.R;
+
+/**
+ * Created by rilintech on 15/8/5.
+ */
+public class WelcomeActivity extends Activity {
+
+    private SharedPreferences preferences;
+    private String user_name;
+    private String user_password;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_loading);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        }
+
+        getUserAndPassword();
+        Handler handler = new Handler();
+        handler.postDelayed(new Loading(), 3000);
+
+    }
+
+    private void getUserAndPassword(){
+        preferences = getSharedPreferences("user",MODE_PRIVATE);
+        user_name = preferences.getString("user_name","");
+        user_password = preferences.getString("password","");
+    }
+
+
+    class Loading implements Runnable {
+        @Override
+        public void run() {
+            if (user_name != "" && user_password != "") {
+                startActivity(new Intent(getApplication(), MainActivity.class));
+            }else {
+                startActivity(new Intent(getApplication(), LoginActivity.class));
+            }
+            WelcomeActivity.this.finish();
+        }
+    }
+}

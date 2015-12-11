@@ -1,0 +1,46 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="weibo_tab">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:paddingTop">5dip</item>
+        <item name="android:paddingBottom">5dip</item>
+        <item name="android:background">@color/bottom_background</item>
+        <item name="android:textColor">@color/weibolist_bottombar_textcolor_selector</item>
+        <item name="android:button">@null</item>
+    </style>
+    <!-- 单选框-->
+    <!--<style name="RadioButtonStyles">-->
+    <!--<item name="android:button">@drawable/radio_button_seletor</item>-->
+    <!--</style>-->
+
+    <!-- 时间选择器popwidnow 显示消失动画 -->
+    <style name="timepopwindow_anim_style">
+        <item name="android:windowEnterAnimation">@anim/timepicker_anim_enter_bottom</item>
+        <!-- 指定显示的动画xml -->
+        <item name="android:windowExitAnimation">@anim/timepicker_anim_exit_bottom</item>
+        <!-- 指定消失的动画xml -->
+    </style>
+
+    <style name="AnimationActivity" mce_bogus="1" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/anim_activity_enter</item>
+        <item name="android:activityOpenExitAnimation">@anim/anim_activity_exit</item>
+
+        <item name="android:activityCloseEnterAnimation">@anim/back_activity_enter</item>
+        <item name="android:activityCloseExitAnimation">@anim/back_activity_exit</item>
+    </style>
+
+    <style name="ThemeActivity" mce_bogus="1">
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+</resources>

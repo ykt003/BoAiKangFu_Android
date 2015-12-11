@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:background="@color/white">
+
+    <include
+        android:id="@+id/layout"
+        layout="@layout/application_title_layout_index" />
+
+    <RelativeLayout
+        android:layout_below="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <include
+            android:id="@+id/include_layout"
+            layout="@layout/activity_table_second_title_layout" />
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/include_layout"
+            android:cacheColorHint="@color/white"
+            android:clickable="true"
+            android:clipToPadding="true"
+            android:divider="@drawable/divider"
+            android:listSelector="@color/white"
+            android:paddingBottom="0dp" >
+
+        </ListView>
+    </RelativeLayout>
+
+
+</RelativeLayout>

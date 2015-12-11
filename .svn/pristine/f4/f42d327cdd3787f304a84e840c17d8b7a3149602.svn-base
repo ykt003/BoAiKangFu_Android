@@ -1,0 +1,92 @@
+package me.zhangls.rilintech.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 手功能分级
+ * Created by YANG on 15/11/24.
+ */
+public class NormalTableModelManager3 {
+
+    public static ArrayList<NormalTableModel> scaleList = new ArrayList<>();
+    public static NormalTableModel scaleTbaleModel;
+    public static ArrayList<String> list_ll;
+    private static String TEXTVIEW = "Textview";
+    private static String SPINNER = "Spinner";
+    private static String RADIOGROUP = "Radiogroup";
+    private static String MAXTEXT = "Maxtext";
+    private static String EDITTEXT = "Edittext";
+
+    public static ArrayList<NormalTableModel> getTableItemList() {
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("动作一：患手固定纸张,健手使用剪刀");
+        scaleTbaleModel.setType(SPINNER);
+        list_ll = new ArrayList<>();
+        list_ll.add("");
+        list_ll.add("能够完成");
+        list_ll.add("不能完成");
+        scaleTbaleModel.setDicText(list_ll);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("动作二:患手拿钱包,健手使用钱包 ");
+        scaleTbaleModel.setType(SPINNER);
+        list_ll = new ArrayList<>();
+        list_ll.add("");
+        list_ll.add("能够完成");
+        list_ll.add("不能完成");
+        scaleTbaleModel.setDicText(list_ll);
+        scaleList.add(scaleTbaleModel);
+
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("动作三:用患手悬空撑伞 10秒钟以上 ");
+        scaleTbaleModel.setType(SPINNER);
+        list_ll = new ArrayList<>();
+        list_ll.add("");
+        list_ll.add("能够完成");
+        list_ll.add("不能完成");
+        scaleTbaleModel.setDicText(list_ll);
+        scaleList.add(scaleTbaleModel);
+
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("用患手剪指甲 ");
+        scaleTbaleModel.setType(SPINNER);
+        list_ll = new ArrayList<>();
+        list_ll.add("");
+        list_ll.add("能够完成");
+        list_ll.add("不能完成");
+        scaleTbaleModel.setDicText(list_ll);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("用患手系纽扣 ");
+        scaleTbaleModel.setType(SPINNER);
+        list_ll = new ArrayList<>();
+        list_ll.add("");
+        list_ll.add("能够完成");
+        list_ll.add("不能完成");
+        scaleTbaleModel.setDicText(list_ll);
+        scaleList.add(scaleTbaleModel);
+
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("手功能分级");
+        scaleTbaleModel.setType(EDITTEXT);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("记录时间");
+        scaleTbaleModel.setType(TEXTVIEW);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("记录者");
+        scaleTbaleModel.setType(EDITTEXT);
+        scaleList.add(scaleTbaleModel);
+        return scaleList;
+    }
+}

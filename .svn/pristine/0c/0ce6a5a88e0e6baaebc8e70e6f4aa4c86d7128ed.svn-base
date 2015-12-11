@@ -1,0 +1,172 @@
+package me.zhangls.rilintech.model;
+
+import android.content.Context;
+import android.view.Menu;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import me.zhangls.rilintech.R;
+import me.zhangls.rilintech.manager.MenuLibManager;
+import me.zhangls.rilintech.utils.L;
+
+/**
+ * Created by rilintech on 15/8/3.
+ */
+public class TableFragmentListViewDate {
+
+    private Context context;
+    //右侧菜单的集合
+    private List<MenuLibModel>list_right_menu;
+    //左侧子菜单文本
+    private List<MenuLibModel>list_left_menu;
+    //右侧菜单的长度
+    private int list_menu_size;
+    //右侧菜单图标的集合
+    private List<Integer>list_image_normal;
+    private List<Integer>list_image_pressed;
+    //菜单的文本
+    private List<String>list_main_text;
+    private List<List<String>>list_more_text;
+    //主菜单的ID
+    private List<String>list_menu_main_id;
+    //左侧菜单的ID
+    private List<List<String>>list_menu_more_id;
+
+    public TableFragmentListViewDate(Context context){
+        this.context = context;
+        getMenuData(context);
+    }
+
+    //获得菜单数据
+    public void getMenuData(Context context) {
+        //取到数据
+        list_right_menu = new ArrayList<>();
+        MenuLibManager manager = new MenuLibManager(context);
+        manager.openDataBase();
+        list_right_menu = manager.getMenu("0");
+        manager.closeDataBase();
+        //得到长度
+        list_menu_size = list_right_menu.size();
+        //存入图片
+        list_image_normal = new ArrayList<>();
+        list_image_pressed = new ArrayList<>();
+        for (int  i=0;i<list_menu_size;i++){
+            list_image_normal.add(R.drawable.linchuang);
+            list_image_pressed.add(R.drawable.linchuang_selected);
+        }
+
+        //存入右侧菜单的文本数据
+        list_main_text = new ArrayList<>();
+        list_menu_main_id = new ArrayList<>();
+        for (MenuLibModel model : list_right_menu){
+            list_main_text.add(model.getZ_name());
+            list_menu_main_id.add(model.getZ_id());
+        }
+
+        //存入左侧菜单文本
+        list_more_text = new ArrayList<>();
+        list_menu_more_id = new ArrayList<>();
+        for (int j=0;j<list_menu_main_id.size();j++){
+            MenuLibManager menuLibManager = new MenuLibManager(context);
+            menuLibManager.openDataBase();
+            list_left_menu = new ArrayList<>();
+            list_left_menu = menuLibManager.getMenu(list_menu_main_id.get(j));
+            menuLibManager.closeDataBase();
+            //左侧子菜单文本
+            List<String>list_more_text1 = new ArrayList<>();
+            //左侧子菜单ID
+            List<String>list_left_child_menu_id = new ArrayList<>();
+            for (MenuLibModel info: list_left_menu){
+                list_more_text1.add(info.getZ_name());
+                list_left_child_menu_id.add(info.getZ_id());
+            }
+            list_more_text.add(list_more_text1);
+            list_menu_more_id.add(list_left_child_menu_id);
+        }
+
+    }
+
+    /**
+     * 拿到图标集合
+     * @return
+     */
+    public List<Integer> getList_image_normal(){
+        return list_image_normal;
+    }
+
+    /**
+     * 拿到点击图标集合
+     * @return
+     */
+    public List<Integer> getList_image_pressed(){
+        return list_image_normal;
+    }
+
+    /**
+     * 拿到main菜单数据
+     * @return
+     */
+    public List<String> getList_main_text(){
+        return list_main_text;
+    }
+
+    /**
+     * 拿到more菜单集合
+     * @return
+     */
+    public List<List<String>> getList_more_text(){
+        return list_more_text;
+    }
+
+    /**
+     * 拿到more菜单的ID
+     * @return
+     */
+    public List<List<String>> getList_menu_more_id(){
+        return list_menu_more_id;
+    }
+
+
+
+    // 第一个listview的图片数据数组
+    public static int[] LISTVIEWIMG = new int[]{R.drawable.linchuang, R.drawable.linchuang,
+            R.drawable.linchuang, R.drawable.linchuang, R.drawable.linchuang,
+            R.drawable.linchuang, R.drawable.linchuang, R.drawable.linchuang,};
+
+    public static int[] LISTVIEWIMG_SELECTED = new int[]{R.drawable.linchuang_selected,
+            R.drawable.linchuang_selected, R.drawable.linchuang_selected,
+            R.drawable.linchuang_selected, R.drawable.linchuang_selected,
+            R.drawable.linchuang_selected, R.drawable.linchuang_selected,
+            R.drawable.linchuang_selected,};
+
+    // mainlistview的文本数据数组
+    public static String[] LISTVIEWTXT = new String[]{"临床信息", "临床评价", "康复评定", "目标设定",
+            "治疗项目", "康复计划", "治疗记录", "回顾总结"};
+
+    public static String[][] MORELISTTXT = {
+            {"基本信息表", "住院病历首页", "病史记录表", "体格检查表", "辅助检查表", "首次病程记录表", "病程记录表",
+                    "病情评估表", "康复评价记录表", "会诊记录表", "手术记录表", "出院总结表"},
+            {"神经系统评价表", "美国国立卫生院卒中量表", "颅神经检查表", "儿童异常姿势与运动评价表", "儿童综合功能评价表",
+                    "肛门直肠功能检查表", "肌肉维度评价表", "西安大略和曼彻斯特大学关节炎指数", "Lequesne指数",
+                    "Oswestry功能障碍指数", "罗兰-莫里斯下腰痛量表"},
+            {"徒手肌力检查记录表(MMT)", "改良Ashworth肌张力评定记录表(MAS)", "关节活动度记录表(ROM)", "Fugl-meyer评定",
+                    "粗大运动功能测试量表(GMFM)",
+                    "手功能分级", "Alyn 水中适应性评定(WOTA 1)", "Alyn 水中适应性评定(WOTA 2)", "Berg 平衡量表(BBS)",
+                    "RLA 步态分析观察表", "“起立—行走”计时测试", "功能性步行分级", "简化 McGill 疼痛问卷(SF-MPQ)",
+                    "简明精神状态检查表(MMSE)", "Frenchay活动量表", "Barthel 指数评定(BI)", "功能独立性评定量表(FIM)",
+                    "脊髓损伤日常生活能力评定", "世界卫生组织生活质量测定简表(WHOQOL-BREF)", "Zung焦虑自评量表",
+                    "Zung抑郁自评量表", "床旁误吸实验", "床旁饮水实验", "吞咽X线荧光透视检查", "洼田吞咽能力分级",
+                    "荧光吞钡造影检查", "西部失语症检查 WAB", "汉语言失语症", "基于 ICF 的水中运动功能评定",
+                    "基于 ICF 核心分类的亚急性期脊髓损伤患者功能概况表", "中国版脑卒中简明 ICF 核心要素量表",
+                    "基于 ICF 核心分类的急性期肌肉骨骼系统疾病功能概况表"},
+            {"康复目标表"},
+            {"治疗项目表", "治疗项目库"},
+            {"治疗计划表"},
+            {"水中肢体功能训练", "水中平板步行训练", "电动浴缸", "步行浴", "哈巴氏槽", "半身浴槽", "气泡涡流浴", "批量添加",
+                    "理疗治疗记录", "运动治疗记录", "作业治疗记录", "言语治疗记录", "文体治疗记录", "心理治疗记录", "中医治疗记录表",
+                    "假肢矫形器制作记录"},
+            {"疾病编码表（AROC）", "试用反馈表", "手术编码表", "ICD编码表", "ICF类目标", "出院总结", "阶段小结", "打印"}
+    };
+
+}

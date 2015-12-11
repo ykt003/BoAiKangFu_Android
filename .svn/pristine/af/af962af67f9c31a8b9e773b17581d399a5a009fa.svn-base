@@ -1,0 +1,2583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gpb="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout"
+        layout="@layout/application_title_layout_index"></include>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/table_index_top"
+                android:layout_marginBottom="0dp"
+                android:clipToPadding="true"
+                android:paddingBottom="0dp"
+                android:scrollbarStyle="outsideOverlay">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginTop"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/alyn1_instructions"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:width="150dp"
+                            android:text="@string/app_instruction"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_16" />
+
+                        <Spinner
+                            android:id="@+id/spinner_edit"
+                            android:layout_width="0dp"
+                            android:layout_height="28dp"
+                            android:layout_weight="1"
+                            android:width="150dp"
+                            android:background="@drawable/sousuo_et_bg"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginTop"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:width="150dp"
+                            android:text="@string/app_date"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="0dp"
+                            android:layout_height="28dp"
+                            android:layout_weight="1"
+                            android:width="150dp"
+                            android:background="@drawable/sousuo_et_bg"
+                            android:gravity="center_vertical"
+                            android:inputType="textCapSentences"
+                            android:paddingLeft="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginTop"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_maker"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:width="150dp"
+                            android:text="@string/app_maker"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <TextView
+                            android:id="@+id/maker"
+                            android:layout_width="0dp"
+                            android:layout_height="28dp"
+                            android:layout_weight="1"
+                            android:width="150dp"
+                            android:background="@drawable/sousuo_et_bg"
+                            android:gravity="center_vertical"
+                            android:inputType="textCapSentences"
+                            android:paddingLeft="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/marginTop"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_clinical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:width="150dp"
+                            android:text="@string/fma_clinical"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_16" />
+
+                        <TextView
+                            android:id="@+id/clinical"
+                            android:layout_width="0dp"
+                            android:layout_height="28dp"
+                            android:layout_weight="1"
+                            android:width="150dp"
+                            android:background="@drawable/sousuo_et_bg"
+                            android:gravity="center_vertical"
+                            android:inputType="textCapSentences"
+                            android:paddingLeft="10dp"
+                            android:singleLine="true"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="@dimen/abc_edit_text_inset_top_material"
+                        android:background="@color/background_listView_tittle"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/part"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:singleLine="true"
+                            android:text="@string/fma_parts"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_16" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:src="@drawable/septal_line_white" />
+
+                        <TextView
+                            android:id="@+id/fugl_meyer_assessment"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:layout_weight="4"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:singleLine="true"
+                            android:text="@string/fugl_meyer_assessment"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_16" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:src="@drawable/septal_line_white" />
+
+                        <TextView
+                            android:id="@+id/assessment"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical|center_horizontal"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|center_horizontal"
+                            android:singleLine="true"
+                            android:text="@string/fma_assessment"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/text_16" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/main_linear_layout"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/parts_up"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center_horizontal|center_vertical"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="16sp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="42"
+                                    android:gravity="center_vertical"
+                                    android:text="@string/fma_parts_up"
+                                    android:textColor="@color/gray"
+                                    android:textSize="@dimen/text_size_16" />
+
+                            </LinearLayout>
+
+                            <TwoLineListItem
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/gray_text" />
+
+                            <LinearLayout
+                                android:id="@+id/fma_up"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="5"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_1_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_1_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_1_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_1_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_2_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_2_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_2_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_2_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_2_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_2_3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_2_4"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_2_4"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_2_5"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_2_5"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_2_6"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_2_6"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_3_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_3_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_3_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_3_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_3_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_3_3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_4"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_4_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_4_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_4_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_4_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_4_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_4_3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_5"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_5_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_5_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_5_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_5_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_5_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_5_3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_6"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_6_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_6_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_7"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_7_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_7_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_7_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_7_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_7_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_7_3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_7_4"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_7_4"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_7_5"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_7_5"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_8"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_8_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_8_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_8_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_8_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_8_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_15" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_8_3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_8_4"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_8_4"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_8_5"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_8_5"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_8_6"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_8_6"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_8_7"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_8_7"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_9"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_9_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_9_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_9_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_9_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_up_title_9_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_up_title_9_3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:id="@+id/parts_down"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.5"
+                                    android:gravity="center_horizontal|center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="16sp"
+                                        android:layout_height="0dp"
+                                        android:layout_weight="25"
+                                        android:gravity="center_vertical"
+                                        android:text="@string/fma_parts_down"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:id="@+id/action_down"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="0.5"
+                                    android:gravity="center_horizontal|center_vertical"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="16sp"
+                                        android:layout_height="0dp"
+                                        android:layout_marginBottom="12dp"
+                                        android:layout_weight="13"
+                                        android:gravity="center_vertical"
+                                        android:text="@string/fma_down_action1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:layout_width="16sp"
+                                        android:layout_height="0dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:layout_weight="3"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text="@string/fma_down_action2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:layout_width="16sp"
+                                        android:layout_height="0dp"
+                                        android:layout_marginBottom="2dp"
+                                        android:layout_weight="3"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text="@string/fma_down_action3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:layout_width="16sp"
+                                        android:layout_height="0dp"
+                                        android:layout_marginBottom="1dp"
+                                        android:layout_weight="2"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text="@string/fma_down_action4"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="match_parent"
+                                        android:layout_height="1dp"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:layout_width="16sp"
+                                        android:layout_height="0dp"
+                                        android:layout_marginBottom="3dp"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text="@string/fma_down_action5"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <TwoLineListItem
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:background="@color/gray_text" />
+
+                            <LinearLayout
+                                android:id="@+id/fma_down"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="5"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_1_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_1_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_1_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_1_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_2_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_2_1_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_2_1_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_2_1_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_2_1_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_2_1_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_2_1_3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_2_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_2_2_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_2_2_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_2_2_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_2_2_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_2_2_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_2_2_3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_2_2_4"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_2_2_4"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_3_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_3_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_3_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_3_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_4"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_4_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_4_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_4_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_4_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_5"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_5_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_5_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_6"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_6_1"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_6_1"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_6_2"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_6_2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+
+                                <TwoLineListItem
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/gray_text" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/listview_item_height"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="4"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/padding_left"
+                                        android:text="@string/fma_down_title_6_3"
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+
+                                    <TwoLineListItem
+                                        android:layout_width="1dp"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/gray_text" />
+
+                                    <TextView
+                                        android:id="@+id/fma_down_title_6_3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical|center_horizontal"
+                                        android:text=""
+                                        android:textColor="@color/gray"
+                                        android:textSize="@dimen/text_size_16" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <me.zhangls.rilintech.view.googleprogressbar.GoogleProgressBar
+            android:id="@+id/google_progress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            gpb:type="folding_circles" />
+
+    </FrameLayout>
+</LinearLayout>

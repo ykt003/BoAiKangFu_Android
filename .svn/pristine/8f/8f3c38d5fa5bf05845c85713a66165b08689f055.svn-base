@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fl_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@drawable/empty_bg" />
+    </FrameLayout>
+
+
+    <include
+        android:id="@+id/layout"
+        layout="@layout/application_title_layout_index" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="@dimen/tittle_marginRight"
+            android:layout_marginRight="@dimen/tittle_marginRight"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/activity_sub_title_3"
+                layout="@layout/activity_sub_title_3" />
+
+            <include
+                android:id="@+id/activity_table_item_title_2"
+                layout="@layout/activity_table_item_title_2" />
+
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="@color/white"
+                android:clickable="true"
+                android:clipToPadding="true"
+                android:divider="@drawable/divider"
+                android:listSelector="@color/white"
+                android:paddingBottom="0dp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

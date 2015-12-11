@@ -1,0 +1,71 @@
+package me.zhangls.rilintech.fragment;
+
+import android.app.Activity;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import me.zhangls.rilintech.R;
+
+
+/**
+ * Created by admin on 13-11-23.
+ */
+public abstract class BaseFragment extends Fragment {
+   // protected ActionBar mActionBar;
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+//        mActionBar = ((AppCompatActivity) activity).getSupportActionBar();
+//        Log.i("TAG","mActionBar="+mActionBar);
+//        if(activity instanceof MainActivity){
+//            mActionBar.getCustomView().setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    onActionBarClick();
+//                }
+//            });
+ //       }
+    }
+
+//    protected void onActionBarClick() {
+//    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment, null);
+        TextView textView = (TextView) view.findViewById(R.id.txt_content);
+        textView.setText(getContent());
+        return view;
+    }
+    /**
+     * 由子类实现
+     *
+     * @return
+     */
+    public abstract String getContent();
+    /**
+     * 网络请求
+     * @param
+     */
+//    protected void executeRequest(Request request){
+//        RequestManager.addRequest(request, this);
+//    }
+//    protected Response.ErrorListener errorListener(){
+//        return  new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                ShowToast.Long(error.getMessage());
+//            }
+//        };
+//    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+     //   RequestManager.cancelAll(this);
+    }
+}

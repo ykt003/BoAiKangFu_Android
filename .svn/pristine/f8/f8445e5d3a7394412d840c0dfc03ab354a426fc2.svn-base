@@ -1,0 +1,137 @@
+package me.zhangls.rilintech.adapter;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import me.zhangls.rilintech.R;
+import me.zhangls.rilintech.model.Model_one;
+import me.zhangls.rilintech.model.Model_three;
+import me.zhangls.rilintech.model.Model_two;
+import me.zhangls.rilintech.utils.L;
+
+/**
+ * Created by zsn on 15/11/10.
+ */
+public class TableIndexRadioGroupAdapter extends BaseAdapter {
+    private final LayoutInflater mInflate;
+    //当前表的初评、中评。。。的集合
+    public List<Model_one> mLists;
+    //传过来的spinner当前选中的值
+    private String spinner_value;
+    private Context mContext;
+    //包含RadioGroup的item布局
+    private int ITEM_LAYOUT_RADIOGROUP = R.layout.textview_textview;
+    //所有的问题
+    private List<String> list_questions;
+    //所有的分数
+    private List<String> list_values;
+
+    public TableIndexRadioGroupAdapter(Context context, List<Model_one> lists,String spinner_value) {
+        this.mLists = lists;
+        this.spinner_value = spinner_value;
+        this.mContext = context;
+        this.mInflate = LayoutInflater.from(context);
+        getQuestionAndValue();
+    }
+
+    /**
+     * 获取listView加载的数据
+     */
+    private void getQuestionAndValue() {
+        list_questions = new ArrayList<>();
+        list_values = new ArrayList<>();
+
+        for (int x = 0; x < mLists.size(); x++) {
+            //找到当前选中的评定在返回数据中的position
+            if (spinner_value == mLists.get(x).getEvaluation_time_note()) {
+
+                Model_one model_one = mLists.get(x);
+                for (int j = 0; j < model_one.getHeader_questions().size(); j++) {
+                    Model_two model_two = model_one.getHeader_questions().get(j);
+                    String header = model_two.getHeader();
+                    if("".equals(header)||"null".equals(header)){
+                    }else{
+                        list_questions.add(header);
+                        list_values.add("");
+                    }
+                    for (int k = 0; k < model_two.getQuestions().size(); k++) {
+
+                        Model_three model_three = model_two.getQuestions().get(k);
+
+                        L.d("aa","id===="+model_two.getQuestions().get(k).getId());
+
+                        list_questions.add(model_three.getQuestion());
+                        list_values.add(model_three.getValue());
+                    }
+                }
+            }
+        }
+
+        /*for (int i=0;i<mLists.size();i++){
+            Model_one model_one = mLists.get(i);
+            for (int j=0;j<model_one.getHeader_questions().size();j++){
+                Model_two model_two = model_one.getHeader_questions().get(j);
+                for (int k=0;k<model_two.getQuestions().size();k++){
+                    Model_three model_three = model_two.getQuestions().get(k);
+                    list_questions.add(model_three.getQuestion());
+                    list_values.add(model_three.getValue());
+                }
+            }
+        }*/
+
+    }
+
+
+    @Override
+    public int getCount() {
+        return list_questions.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return list_questions.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        ViewHolder holder = null;
+        if (convertView == null) {
+            holder = new ViewHolder();
+            convertView = mInflate.inflate(ITEM_LAYOUT_RADIOGROUP, null);
+
+            holder.tv_question = (TextView) convertView.findViewById(R.id.tv_value1);
+            holder.tv_value = (TextView) convertView.findViewById(R.id.tv_value2);
+
+            convertView.setTag(holder);
+        } else {
+
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        holder.tv_question.setText(list_questions.get(position));
+        holder.tv_value.setText(list_values.get(position));
+
+        return convertView;
+    }
+
+
+    private class ViewHolder {
+
+        TextView tv_question, tv_value;
+
+    }
+
+}

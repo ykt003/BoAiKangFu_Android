@@ -1,0 +1,667 @@
+package me.zhangls.rilintech.adapter;
+
+import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import me.zhangls.rilintech.R;
+import me.zhangls.rilintech.model.Model_four;
+import me.zhangls.rilintech.model.Model_one;
+import me.zhangls.rilintech.model.Model_three;
+import me.zhangls.rilintech.model.Model_two;
+import me.zhangls.rilintech.utils.L;
+
+/**
+ * 编辑或者新建时用到的ListView的加载器（item子控件为RadioGroup）
+ * Created by YANG on 15/11/12.
+ */
+public class TableInfoRadioGroupAdapter extends BaseAdapter {
+
+    private Context mContext;
+    private ArrayList<String> listItem;
+    private LayoutInflater mInflater;
+    private Model_one model_one;
+    //包含RadioGroup的item布局
+    private int ITEM_LAYOUT_RADIOGROUP = -1;
+    //评定问题的集合
+    private static ArrayList<Model_three> list_model_three;
+    //评定问题的集合（包含总分）
+    private static ArrayList<Model_three> list_model_three_include_sum;
+    //second_title
+    private List<String> list_second_title;
+    //每个问题的选项集合
+    private List<Model_four> list_options;
+    //选项的个数
+    private int optionCount;
+
+    //评定问题值的集合
+    private List<String> list_values;
+    //评定问题选项的值集合
+    private List<Model_four> list_options_values;
+
+    //TextView first_title;
+    private TextView second_title, text_tv;
+    private ImageView text_image_add, text_image_delete;
+    private TextView question;
+    //拿到的所有的List
+    private static ArrayList<Model_one> mLists;
+    //区分编辑和添加
+    private boolean flag = false;
+    //给每个新添加的目的做标记
+    private int tag = 0;
+    //存放tag标记的EditText
+    private ArrayList<Integer> list_tag = new ArrayList<>();
+    //删除
+    private ImageView delete_purpose;
+
+    private String new_purpose = "";
+
+
+    public TableInfoRadioGroupAdapter(Context context, ArrayList<Model_one> lists) {
+        mContext = context;
+        listItem = new ArrayList<String>();
+        listItem.add("第一项");// 默认只加载一个Item
+
+        this.mLists = lists;
+        this.model_one = lists.get(0);
+        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        getAllQuestions();
+        //清空list_model_three中的答案分值
+        for (int i = 0; i < list_model_three.size(); i++) {
+            list_model_three.get(i).setValue("-1000");
+        }
+        getAllOptions();
+
+
+    }
+
+    public TableInfoRadioGroupAdapter(Context context, ArrayList<Model_one> lists, String spinner_value) {
+        mContext = context;
+        flag = true;
+        this.mLists = lists;
+        this.model_one = lists.get(0);
+        mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        getAllQuestions(spinner_value);
+        getAllOptions();
+        getQuestionsAndValues(spinner_value);
+        //   getOptionsStartScore();
+    }
+
+    /**
+     * 通过下拉列表选中的某项，获得所有的问题集合
+     *
+     * @param spinner_value
+     */
+    private void getAllQuestions(String spinner_value) {
+
+        list_second_title = new ArrayList<>();
+        list_model_three = new ArrayList<>();
+        list_model_three_include_sum = new ArrayList<>();
+
+        for (int position = 0; position < mLists.size(); position++) {
+            if (spinner_value.equals(mLists.get(position).getEvaluation_time_note())) {
+
+                Model_one list_one = mLists.get(position);
+                for (int i = 0; i < list_one.getHeader_questions().size(); i++) {
+                    Model_two list_two = list_one.getHeader_questions().get(i);
+                    for (int j = 0; j < list_two.getQuestions().size(); j++) {
+                        if ("总分".equals(list_two.getQuestions().get(j).getQuestion())) {
+                            list_model_three_include_sum.add(list_two.getQuestions().get(j));
+                        } else if ("分级".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("疼痛总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("晨僵总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("身体功能总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("认知功能总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("言语功能总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("运动能力总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("自理动作总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("社会适应总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else {
+                            list_second_title.add(list_two.getHeader());
+                            //评定问题的集合
+                            list_model_three.add(list_two.getQuestions().get(j));
+                            list_model_three_include_sum.add(list_two.getQuestions().get(j));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 通过下拉列表选中的某项，获取第一个选项的初始分数
+     */
+    //  private void getOptionsStartScore() {
+//        for (Model_four model_four : list_options_values) {
+//            if (model_four.getValue().substring(0, 1).contains("0")) {
+//                start_score = "0.0";
+//                break;
+//            } else {
+//                start_score = "1.0";
+//            }
+//        }
+    //   }
+
+
+    /**
+     * 通过下拉列表选中的某项，获取问题和值的集合
+     *
+     * @param spinner_value
+     */
+    private void getQuestionsAndValues(String spinner_value) {
+
+        list_values = new ArrayList<>();
+        list_options_values = new ArrayList<>();
+
+        for (int position = 0; position < mLists.size(); position++) {
+            if (spinner_value.equals(mLists.get(position).getEvaluation_time_note())) {
+
+                Model_one list_one = mLists.get(position);
+                for (int i = 0; i < list_one.getHeader_questions().size(); i++) {
+                    Model_two list_two = list_one.getHeader_questions().get(i);
+                    for (int j = 0; j < list_two.getQuestions().size(); j++) {
+                        Model_three list_three = list_two.getQuestions().get(j);
+                        if ("总分".equals(list_three.getQuestion())) {
+                        } else if ("分级".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("疼痛总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("晨僵总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("身体功能总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("认知功能总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("言语功能总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("运动能力总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("自理动作总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else if ("社会适应总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        } else {
+                            //评定问题的值的集合
+                            list_values.add(list_three.getValue());
+                            for (int k = 0; k < list_three.getOptions().size(); k++) {
+                                list_options_values.add(list_three.getOptions().get(k));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 获得所有问题集合（model_three）
+     */
+    private void getAllQuestions() {
+
+        list_second_title = new ArrayList<>();
+        list_model_three = new ArrayList<>();
+        list_model_three_include_sum = new ArrayList<>();
+
+        if (model_one.getHeader_questions().size() > 0) {
+            for (int i = 0; i < model_one.getHeader_questions().size(); i++) {
+                for (int j = 0; j < model_one.getHeader_questions().get(i).getQuestions().size(); j++) {
+                    if ("总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                        list_model_three_include_sum.add(model_one.getHeader_questions().get(i).getQuestions().get(j));
+                    } else if ("分级".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                    } else if ("疼痛总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                    } else if ("晨僵总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                    } else if ("身体功能总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                    } else if ("认知功能总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                    } else if ("言语功能总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                    } else if ("运动能力总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                    } else if ("自理动作总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                    } else if ("社会适应总分".equals(model_one.getHeader_questions().get(i).getQuestions().get(j).getQuestion())) {
+                    } else {
+                        list_second_title.add(model_one.getHeader_questions().get(i).getHeader());
+                        list_model_three.add(model_one.getHeader_questions().get(i).getQuestions().get(j));
+                        list_model_three_include_sum.add(model_one.getHeader_questions().get(i).getQuestions().get(j));
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * 获得所有选项集合（Model_four）
+     */
+    private void getAllOptions() {
+        list_options = new ArrayList<>();
+        for (int i = 0; i < list_model_three.size(); i++) {
+            optionCount = list_model_three.get(i).getOptions().size();
+            for (int j = 0; j < optionCount; j++) {
+                list_options.add(list_model_three.get(i).getOptions().get(j));
+            }
+        }
+    }
+
+
+    @Override
+    public int getCount() {
+        return list_model_three.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return list_model_three.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(final int position, View convertView, ViewGroup parent) {
+
+        optionCount = list_model_three.get(position).getOptions().size();
+        L.d("aa", "optionCount==" + optionCount);
+        switch (optionCount) {
+
+            case 0:
+                ITEM_LAYOUT_RADIOGROUP = R.layout.textview_edittext_img;
+                break;
+            case 2:
+                ITEM_LAYOUT_RADIOGROUP = R.layout.textview_textview_radiobutton_2;
+                break;
+            case 3:
+                ITEM_LAYOUT_RADIOGROUP = R.layout.textview_textview_radiobutton_3;
+                break;
+            case 4:
+                ITEM_LAYOUT_RADIOGROUP = R.layout.textview_textview_radiobutton_4;
+                break;
+            case 5:
+                ITEM_LAYOUT_RADIOGROUP = R.layout.textview_textview_radiobutton_5;
+                break;
+            case 6:
+                ITEM_LAYOUT_RADIOGROUP = R.layout.textview_textview_radiobutton_6;
+                break;
+            case 7:
+                ITEM_LAYOUT_RADIOGROUP = R.layout.textview_textview_radiobutton_7;
+                break;
+            case 9:
+                ITEM_LAYOUT_RADIOGROUP = R.layout.textview_textview_radiobutton_9;
+                break;
+            case 11:
+                ITEM_LAYOUT_RADIOGROUP = R.layout.textview_textview_radiobutton_11;
+                break;
+        }
+        convertView = mInflater.inflate(ITEM_LAYOUT_RADIOGROUP, null);
+        initView(convertView, position);
+        initData(optionCount, position);
+        return convertView;
+    }
+
+    /**
+     * 加载视图view
+     *
+     * @param convertView
+     * @param
+     */
+    private void initView(View convertView, int position) {
+        second_title = (TextView) convertView.findViewById(R.id.item_head_title);
+
+        question = (TextView) convertView.findViewById(R.id.item_sub_title);
+        Model_three modelThree = list_model_three.get(position);
+        modelThree.setRadioGroup((RadioGroup) convertView.findViewById(R.id.item_title_rg));
+        modelThree.setEditText((EditText) convertView.findViewById(R.id.et_value));
+        modelThree.setLl_common_layout((LinearLayout) convertView.findViewById(R.id.ll_common_layout));
+        text_tv = (TextView) convertView.findViewById(R.id.tv_value);
+        modelThree.setText_image_add((ImageView) convertView.findViewById(R.id.image_add_layout));
+        modelThree.setText_image_delete((ImageView) convertView.findViewById(R.id.image_delete_layout));
+    }
+
+    private void initData(int optionCount, final int position) {
+
+        switch (optionCount) {
+
+            case 0:
+                text_tv.setText(list_model_three.get(position).getQuestion());
+                if ("-1000".equals(list_model_three.get(position).getValue())) {
+                    list_model_three.get(position).getEditText().setText("");
+                } else {
+                    list_model_three.get(position).getEditText().setText
+                            (list_model_three.get(position).getValue());
+                }
+                list_model_three.get(position).getEditText().requestFocus();
+
+                // onTextChanged、beforeTextChanged和afterTextChanged
+                list_model_three.get(position).getEditText().addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                        L.d("ww", "333");
+                        list_model_three.get(position).setValue((s.toString()));
+                }
+        });
+
+
+//                switch (position) {
+//                    case 0:
+//                        list_model_three.get(position).getText_image_add().setBackgroundResource(R.drawable.image_add_layout);// 第一项按钮则显示加号图片
+//                        break;
+//
+//                    default:
+//                        list_model_three.get(position).getText_image_add().setBackgroundResource(R.drawable.image_delete_layout);// 超过了一项则显示减号图片，可以删除
+//                        break;
+//                }
+                list_model_three.get(position).getText_image_add().setOnClickListener(new View.OnClickListener() {// 添加按钮
+                    @Override
+                    public void onClick(View v) {
+                        L.d("ww", "99999");
+                        add_layout_set_data("", position);
+//                        if (position == 0) {
+//                            L.d("ww","position=="+position);
+//                            L.d("ww","==000-----");
+//                            text.add("xxx");//添加一项控件
+//
+//                        } else if (position > 0) {// 始终留一项不能删除
+//                            L.d("ww","position=="+position);
+//                            L.d("ww","==1111-----");
+//                            text.remove(text.size() - 1);// 删除按钮
+//                        }
+                        // notifyDataSetChanged();
+                    }
+                });
+
+//                if (list_tag.size() > 0) {
+//                    for (int i : list_tag) {
+//                        LinearLayout ll = list_model_three.get(position).getLl_common_layout();
+//                        EditText text = (EditText) ll.findViewWithTag(i).findViewById(R.id.et_common_purpose);
+//                        new_purpose += text.getText().toString() + ",";
+//                    }
+//                }
+
+
+                break;
+            case 2:
+                //设置radioGroup的值
+                setRadioGroupData(position);
+
+                break;
+            case 3:
+                //设置radioGroup的值
+                setRadioGroupData(position);
+                break;
+            case 4:
+                //设置radioGroup的值
+                setRadioGroupData(position);
+                break;
+            case 5:
+                //设置radioGroup的值
+                setRadioGroupData(position);
+                break;
+            case 6:
+                //设置radioGroup的值
+                setRadioGroupData(position);
+                break;
+            case 7:
+                //设置radioGroup的值
+                setRadioGroupData(position);
+                break;
+            case 9:
+                //设置radioGroup的值
+                setRadioGroupData(position);
+                break;
+            case 11:
+                //设置radioGroup的值
+                setRadioGroupData(position);
+                break;
+        }
+    }
+
+    /**
+     * 添加新的布局
+     *
+     * @param s
+     * @param position
+     */
+    private void add_layout_set_data(String s, final int position) {
+        L.d("ww", "pos=" + position);
+        tag += 1;
+        list_tag.add(tag);
+
+        final View view = LayoutInflater.from(mContext).inflate(R.layout.include_listview_linearlayout, null);
+        delete_purpose = (ImageView) view.findViewById(R.id.image_delete);
+        view.setTag(tag);
+        EditText text = (EditText) view.findViewById(R.id.et_common_purpose);
+        text.setText(s);
+        L.d("ww", "s===" + s);
+        list_model_three.get(position).getLl_common_layout().addView(view);
+        delete_purpose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                list_model_three.get(position).getLl_common_layout().removeView(view);
+
+                for (int i = 0; i < list_tag.size(); i++) {
+                    if (list_tag.get(i) == view.getTag()) {
+                        list_tag.remove(i);
+                    }
+                }
+            }
+        });
+    }
+
+    /**
+     * 设置radioGroup的数据
+     *
+     * @param position
+     */
+    private void setRadioGroupData(int position) {
+        final Model_three model_three = list_model_three.get(position);
+
+        if (list_second_title.get(position).equals("null")) {
+            second_title.setVisibility(View.GONE);
+        } else {
+            second_title.setText(list_second_title.get(position));
+        }
+        question.setText(model_three.getQuestion());
+
+        for (int j = 0; j < optionCount; j++) {
+            final RadioButton rb = (RadioButton) model_three.getRadioGroup().getChildAt(j);
+            rb.setText(model_three.getOptions().get(j).getContent());
+            //rb.setTag(j);
+            rb.setTag(model_three.getOptions().get(j).getValue());
+
+            // if (model_three.getValue().substring(0,1).equals(rb.getTag().toString().substring(0, 1))) {
+            if (stringToInt(model_three.getValue().toString()) == stringToInt(rb.getTag().toString())) {
+                rb.setChecked(true);
+            } else {
+                rb.setChecked(false);
+            }
+            rb.setOnClickListener(new RadioButton.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    model_three.setValue(rb.getTag() + "");
+                }
+            });
+        }
+
+        // radioGroupOperate(position, convertView);
+//
+//        final Model_three model_three = list_model_three.get(position);
+//        if (flag) {
+//            radioGroupOperate(position, convertView);
+//            for (int j = 0; j < optionCount; j++) {
+//                RadioButton rb = (RadioButton) model_three.getRadioGroup().getChildAt(j);
+//                L.d("oo","rb.getTag()="+rb.getTag());
+//                L.d("oo","model_three.getValue()="+model_three.getValue());
+//                if(rb.getTag().equals(model_three.getValue())){
+//                    rb.setChecked(true);
+//                }
+//            }
+//            if ("0".equals(start_score.substring(0, 1))) {
+//                String value = list_model_three.get(position).getValue();
+//                int v = Integer.parseInt(value.substring(0, 1));
+//                RadioButton rb = (RadioButton) model_three.getRadioGroup().getChildAt(v);
+//                rb.setChecked(true);
+//
+//            } else if ("1".equals(start_score.substring(0, 1))) {
+//                //编辑时，选中的radiobutton
+//                String value = list_model_three.get(position).getValue();
+//                int v = Integer.parseInt(value.substring(0, 1)) - 1;
+//                RadioButton rb = (RadioButton) model_three.getRadioGroup().getChildAt(v);
+//                rb.setChecked(true);
+//            }
+//
+//            flag = false;
+//        } else {
+//            //添加
+//            L.d("OO", "1111111");
+        //radioGroupOperate(position, convertView);
+//        }
+    }
+
+    /**
+     * radioGroup的操作
+     *
+     * @param position
+     */
+    private void radioGroupOperate(final int position, final View convertView) {
+
+        final Model_three model_three = list_model_three.get(position);
+        //L.d("oo", model_three.getClickPosition() + "");
+
+        if (list_second_title.get(position).equals("null")) {
+            second_title.setVisibility(View.GONE);
+        } else {
+            second_title.setText(list_second_title.get(position));
+        }
+        question.setText(model_three.getQuestion());
+
+        for (int j = 0; j < optionCount; j++) {
+            final RadioButton rb = (RadioButton) model_three.getRadioGroup().getChildAt(j);
+            rb.setText(model_three.getOptions().get(j).getContent());
+            //rb.setTag(j);
+            rb.setTag(model_three.getOptions().get(j).getValue());
+
+            // if (model_three.getValue().substring(0,1).equals(rb.getTag().toString().substring(0, 1))) {
+            if (stringToInt(model_three.getValue().toString()) == stringToInt(rb.getTag().toString())) {
+                rb.setChecked(true);
+            } else {
+                rb.setChecked(false);
+            }
+            rb.setOnClickListener(new RadioButton.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    model_three.setValue(rb.getTag() + "");
+                }
+            });
+        }
+    }
+
+    /**
+     * radioGroup添加
+     *
+     * @param position
+     */
+    private void radioGroupAdd(final int position, final View convertView) {
+        L.d("oo", "add");
+
+        final Model_three model_three = list_model_three.get(position);
+
+        if (list_second_title.get(position).equals("null")) {
+            second_title.setVisibility(View.GONE);
+        } else {
+            second_title.setText(list_second_title.get(position));
+        }
+        question.setText(list_model_three.get(position).getQuestion());
+
+        for (int j = 0; j < optionCount; j++) {
+            final RadioButton rb = (RadioButton) model_three.getRadioGroup().getChildAt(j);
+            rb.setText(model_three.getOptions().get(j).getContent());
+            //rb.setTag(j);
+            rb.setTag(model_three.getOptions().get(j).getValue());
+            if (model_three.getValue().equals(rb.getTag())) {
+                rb.setChecked(true);
+            } else {
+                rb.setChecked(false);
+            }
+            rb.setOnClickListener(new RadioButton.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //model_three.setClickPosition((int)rb.getTag());
+                    model_three.setValue(rb.getTag() + "");
+                }
+            });
+        }
+    }
+
+    /**
+     * 给activity返回List<Model_three>
+     *
+     * @return
+     */
+    public static ArrayList<Model_three> getlist_modle_three() {
+        return list_model_three;
+    }
+
+    /**
+     * 给activity返回List<Model_three>
+     *
+     * @return
+     */
+    public static ArrayList<Model_three> getlist_modle_three_include_sum() {
+        return list_model_three_include_sum;
+    }
+
+    /**
+     * 返回从index拿来的集合list
+     *
+     * @return
+     */
+    public static ArrayList<Model_one> getlist_modle_one_list() {
+        return mLists;
+    }
+
+    /**
+     * 返回特定spinner值的modle_one集合
+     *
+     * @param spinner_value
+     * @return
+     */
+    public static Model_one getlist_modle_one(String spinner_value) {
+        Model_one list_one = null;
+        for (int position = 0; position < mLists.size(); position++) {
+            if (spinner_value.equals(mLists.get(position).getEvaluation_time_note())) {
+                list_one = mLists.get(position);
+            }
+        }
+        return list_one;
+    }
+
+    /**
+     * 字符串，去掉点，转换为整型
+     *
+     * @param str
+     * @return
+     */
+    private int stringToInt(String str) {
+        int num = -1;
+        if (str.contains(".")) {
+            String[] arr = str.split("\\.");
+            num = Integer.parseInt(arr[0]);
+        } else {
+            num = Integer.parseInt(str);
+        }
+        return num;
+    }
+
+}

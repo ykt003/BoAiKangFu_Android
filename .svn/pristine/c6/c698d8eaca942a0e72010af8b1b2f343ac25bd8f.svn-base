@@ -1,0 +1,423 @@
+package me.zhangls.rilintech.activity;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.TextView;
+
+import org.json.JSONException;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import me.zhangls.rilintech.R;
+import me.zhangls.rilintech.adapter.TableIndexNormalAdapter;
+import me.zhangls.rilintech.constants.NetUrlAddress;
+import me.zhangls.rilintech.model.NormalTableFinalModel;
+import me.zhangls.rilintech.model.NormalTableModel;
+import me.zhangls.rilintech.model.NormalTableModelManager1;
+import me.zhangls.rilintech.model.NormalTableModelManager11;
+import me.zhangls.rilintech.model.NormalTableModelManager2;
+import me.zhangls.rilintech.model.NormalTableModelManager3;
+import me.zhangls.rilintech.model.NormalTableModelManager4;
+import me.zhangls.rilintech.model.NormalTableModelManager5;
+import me.zhangls.rilintech.model.NormalTableModelManager6;
+import me.zhangls.rilintech.model.NormalTableModelManager7;
+import me.zhangls.rilintech.model.NormalTableModelManager8;
+import me.zhangls.rilintech.model.NormalTableModelManager9;
+import me.zhangls.rilintech.model.NormalTableModelManager10;
+import me.zhangls.rilintech.model.TableBarthelInfo;
+import me.zhangls.rilintech.model.TableFragmentListViewDate;
+import me.zhangls.rilintech.net.HttpUtil;
+import me.zhangls.rilintech.utils.L;
+import me.zhangls.rilintech.utils.ShowToast;
+
+/**
+ * Created by YANG on 15/11/23.
+ */
+public class TableNormalChildIndexActivity extends TableNormalParentIndexActivity implements View.OnClickListener {
+
+    //当前登录的用户ID
+    private int user_auth_id;
+    //患者ID
+    private int patient_info_id;
+    //menu_lib_id
+    private String menu_lib_id;
+    //子菜单位置
+    private int more_position;
+    //父菜单位置
+    private int main_position;
+    //标题
+    private String title;
+    //model集合
+    private ArrayList<NormalTableModel> list_info;
+    //添加
+    private boolean isAdd = true;
+    //更多选项
+    private AlertDialog dialog;
+    //服务器返回的数据String类型
+    private String value;
+    //封装数据的model
+    private ArrayList<NormalTableFinalModel> list_finalModel;
+    //MyHandler
+    private MyHandler handler;
+    //是否联网获取数据成功
+    private boolean isFalse;
+    //删除响应码
+    private int deleteCode;
+    //请求吗
+    public static final int RESULT_YES = 1;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        //启动消息接收
+        handler = new MyHandler();
+        //获取当前登录用户和当前患者的ID
+        getSharedPreferencesData();
+        //判断应该加载那种model类型
+        getModelList(menu_lib_id);
+        //初始化控件
+        initView();
+        //联网取数据
+        new MyAsyncTask().execute();
+        //添加监听
+        initSetOnClick();
+    }
+
+    private class MyHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            //停止刷新
+            if (refreshLayout.isRefreshing()) {
+                refreshLayout.setRefreshing(false);
+            }
+            switch (msg.what) {
+                case 1:
+                    setListView();
+                    break;
+                case 2:
+
+                    break;
+                case 200:
+                    ShowToast.Short("删除成功");
+                    //刷新列表，重新获取数据
+                    new MyAsyncTask().execute();
+                    break;
+                case 100:
+                    ShowToast.Short("删除失败");
+                    break;
+                case 500:
+                    ShowToast.Short("删除失败");
+                    break;
+            }
+        }
+    }
+
+
+    /**
+     * 判断应该加载那种model类型
+     *
+     * @param menu_lib
+     * @return
+     */
+    private List<NormalTableModel> getModelList(String menu_lib) {
+        list_info = new ArrayList<>();
+        switch (menu_lib) {
+            case "214"://颅神经检查
+                list_info = NormalTableModelManager1.getTableItemList();
+                break;
+            case "219"://肌肉维度评价表
+                list_info = NormalTableModelManager2.getTableItemList();
+                break;
+            case "206"://手功能分级
+                list_info = NormalTableModelManager3.getTableItemList();
+                break;
+            case "162"://水中肢体功能
+                list_info = NormalTableModelManager4.getTableItemList();
+                break;
+            case "164"://电动浴缸
+                list_info = NormalTableModelManager5.getTableItemList();
+                break;
+            case "167"://半身浴槽
+                list_info = NormalTableModelManager6.getTableItemList();
+                break;
+            case "186"://气泡涡流浴
+                list_info = NormalTableModelManager7.getTableItemList();
+                break;
+            case "165"://步行浴
+                list_info = NormalTableModelManager8.getTableItemList();
+                break;
+            case "166"://哈巴氏槽
+                list_info = NormalTableModelManager9.getTableItemList();
+                break;
+            case "208"://康复评价会记录表
+                list_info = NormalTableModelManager10.getTableItemList();
+                break;
+            case "153"://阶段小结
+                list_info = NormalTableModelManager11.getTableItemList();
+                break;
+            case "154"://出院总结
+                list_info = NormalTableModelManager11.getTableItemList();
+                break;
+        }
+        return list_info;
+    }
+
+    private void getSharedPreferencesData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("patientinfo", Activity.MODE_PRIVATE);
+        patient_info_id = sharedPreferences.getInt("id", -1);
+
+        SharedPreferences preferences = getSharedPreferences("user", MODE_PRIVATE);
+        user_auth_id = preferences.getInt("use_id", 2);
+
+        menu_lib_id = getIntent().getStringExtra("menu_lib_id");
+        //more_position = getIntent().getIntExtra("position", 0);
+        //main_position = getIntent().getIntExtra("main_position", 0);
+        title = getIntent().getStringExtra("titleName");
+
+    }
+
+    /**
+     * 设置标题
+     */
+    private String setIndexTextName() {
+        TableFragmentListViewDate tableFragmentListViewDate = new TableFragmentListViewDate(this);
+
+        if (main_position == 0 && more_position == 0) {
+            title = "";
+        } else {
+            title = tableFragmentListViewDate.getList_more_text().get(main_position).get(more_position);
+        }
+        return title;
+    }
+
+    private void initView() {
+        //setIndexTextName();
+        mTitle.setText(title);
+        mSecondTitle1.setText(list_info.get(0).getLeftText());
+        mSecondTitle2.setText(list_info.get(1).getLeftText());
+        mSecondTitle3.setText(list_info.get(2).getLeftText());
+    }
+
+    private void initSetOnClick() {
+        mAdd.setOnClickListener(this);
+        mBack.setOnClickListener(this);
+        mListView.setOnItemClickListener(new MyOnItemClickListener());
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new MyAsyncTask().execute();
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.title_back:
+                this.finish();
+                break;
+            case R.id.title_add:
+                if (isFalse == false) {
+                    isAdd = true;
+                    Intent intent = new Intent(this, TableNormalChildInfoActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("finalModel", list_finalModel.get(0));
+                    bundle.putString("menu_lib_id", menu_lib_id);
+                    bundle.putBoolean("isAdd", isAdd);
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent, RESULT_YES);
+                } else {
+                    ShowToast.Short("请确认接入网络刷新后再尝试");
+                }
+                break;
+        }
+
+    }
+
+    class MyOnItemClickListener implements AdapterView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(TableNormalChildIndexActivity.this);
+            View view1 = getLayoutInflater().inflate(R.layout.dialog_layout, null);
+
+            TextView delete = (TextView) view1.findViewById(R.id.delete);
+            TextView add = (TextView) view1.findViewById(R.id.add);
+            TextView edit = (TextView) view1.findViewById(R.id.edit);
+            dialog = builder.show();
+            dialog.getWindow().setContentView(view1);
+            //编辑
+            edit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    isAdd = false;
+                    dialog.dismiss();
+                    Intent intent = new Intent(TableNormalChildIndexActivity.this, TableNormalChildInfoActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("finalModel", list_finalModel.get(position));
+                    bundle.putString("menu_lib_id", menu_lib_id);
+                    bundle.putBoolean("isAdd", isAdd);
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent, RESULT_YES);
+                }
+            });
+            //添加
+            add.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    isAdd = true;
+                    dialog.dismiss();
+                    Intent intent = new Intent(TableNormalChildIndexActivity.this, TableNormalChildInfoActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("finalModel", list_finalModel.get(0));
+                    bundle.putString("menu_lib_id", menu_lib_id);
+                    bundle.putBoolean("isAdd", isAdd);
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent, RESULT_YES);
+                }
+            });
+            //删除
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                    deleteOneItemData(position);
+                }
+            });
+
+        }
+    }
+
+    private class MyAsyncTask extends AsyncTask<String, String, Integer> {
+
+        @Override
+        protected Integer doInBackground(String... params) {
+            getNormalTableData();
+
+            if (list_finalModel == null) {
+                return 0;
+
+            } else {
+                return list_finalModel.size();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(Integer s) {
+            super.onPostExecute(s);
+
+            Message message = new Message();
+            if (0 != s) {
+                message.what = 1;
+                //显示listview
+                setListView();
+            } else {
+                message.what = 2;
+            }
+            handler.sendMessage(message);
+        }
+    }
+
+    /**
+     * 从网络端请求数据
+     *
+     * @return
+     */
+    public ArrayList<NormalTableFinalModel> getNormalTableData() {
+
+        String param = "patient_info_id=" + patient_info_id
+                + "&menu_lib_id=" + menu_lib_id
+                + "&user_auth_id=" + user_auth_id
+                + "&token=" + NetUrlAddress.token;
+
+        value = NormalTableFinalModel.getData(NetUrlAddress.GetNormalTableData, param);
+        L.d("yy", "value===" + value);
+        if (value.equals("")) {
+            isFalse = true;
+            Looper.prepare();
+            ShowToast.Short("获取数据失败，请检查网络");
+            Message message = new Message();
+            message.what = 2;
+            handler.sendMessage(message);
+            Looper.loop();
+        } else {
+            isFalse = false;
+            list_finalModel = NormalTableFinalModel.parseJson(value, list_info);
+        }
+
+        return list_finalModel;
+
+    }
+
+    /**
+     * ListView赋值
+     */
+    private void setListView() {
+        if (list_finalModel != null && list_finalModel.get(0).getIsEmpty().equals("no")) {
+            try {
+                mListView.setAdapter(new TableIndexNormalAdapter(this, list_finalModel));
+                mListView.setVisibility(View.VISIBLE);
+            } catch (Exception e) {
+                e.printStackTrace();
+                L.d("yy", "TableIndexNormalAdapter加载失败");
+            }
+        } else {
+            mListView.setVisibility(View.INVISIBLE);
+            L.d("yy", "还没有数据可展示");
+        }
+    }
+
+    /**
+     * 删除
+     *
+     * @param position
+     */
+    private void deleteOneItemData(int position) {
+
+        L.d("yy", "position===" + position);
+        L.d("yy", "ididididid===" + list_finalModel.get(position).getId());
+
+        final String param = "patient_info_id=" + patient_info_id
+                + "&user_auth_id=" + user_auth_id
+                + "&" + list_finalModel.get(position).getModel_name() + "["
+                + "id" + "]=" + list_finalModel.get(position).getId()
+                + "&menu_lib_id=" + menu_lib_id
+                + "&token=" + NetUrlAddress.token;
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                deleteCode = NormalTableFinalModel.doPost(NetUrlAddress.DeleteNormalTableData, param);
+
+                Message message = new Message();
+                message.what = deleteCode;
+                handler.sendMessage(message);
+            }
+        }).start();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case RESULT_YES:
+                new MyAsyncTask().execute();
+                break;
+        }
+    }
+
+}

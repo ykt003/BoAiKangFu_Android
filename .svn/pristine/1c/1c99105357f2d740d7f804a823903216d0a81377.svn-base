@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#0000</color>
+    <color name="white">#fff</color>
+    <color name="weibo_listtab_off">#8d8d8d</color>
+    <color name="background">#56abe4</color>
+    <color name="textcolor">#a9b7b7</color>
+    <color name="bottom_background">#FDFDFD</color>
+    <color name="background_layout">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="background_listView_tittle">#ffebebeb</color>
+    <color name="gray_text">#B5B6B6</color>
+    <color name="gray">#ff636363</color>
+    <color name="lightblue">#00BFFF</color>
+    <color name="silver">#c0c0c0</color>
+    <color name="color_hint">#ecf0f1</color>
+
+    <color name="province_line_border">#C7C7C7</color>
+
+
+    <color name="backgroundColor">#ffffff</color>
+    <color name="backgroundColorPress">#f7f7f3</color>
+
+    <!-- 省市和时间弹框-->
+    <color name="wheel_timebtn_nor">#54a3fa</color>
+    <color name="wheel_timebtn_pre">#CCCCCC</color>
+    <!-- 省市和时间弹框-->
+
+
+</resources>

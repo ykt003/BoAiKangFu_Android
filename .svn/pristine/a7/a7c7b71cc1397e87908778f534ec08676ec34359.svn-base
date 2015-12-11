@@ -1,0 +1,84 @@
+package me.zhangls.rilintech.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.widget.RadioGroup;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Model_three implements Parcelable {
+    private ArrayList<Model_four> options=new ArrayList<Model_four>();
+    private String question;
+    private String value;
+    private RadioGroup radioGroup;
+    private int clickPosition = -1;
+
+    public int getClickPosition() {
+        return clickPosition;
+    }
+
+    public void setClickPosition(int clickPosition) {
+        this.clickPosition = clickPosition;
+    }
+
+    public RadioGroup getRadioGroup() {
+        return radioGroup;
+    }
+
+    public void setRadioGroup(RadioGroup radioGroup) {
+        this.radioGroup = radioGroup;
+    }
+
+    public static final Creator<Model_three> CREATOR = new Creator<Model_three>() {
+        @Override
+        public Model_three createFromParcel(Parcel in) {
+            Model_three model_three=new Model_three();
+            model_three.question=in.readString();
+            model_three.value=in.readString();
+            model_three.options=in.readArrayList(Model_four.class.getClassLoader());
+            return model_three;
+        }
+
+        @Override
+        public Model_three[] newArray(int size) {
+            return new Model_three[size];
+        }
+    };
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public List<Model_four> getOptions() {
+        return options;
+    }
+
+    public void setOptions(ArrayList<Model_four> options) {
+        this.options = options;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(question);
+        dest.writeString(value);
+        dest.writeList(options);
+    }
+}

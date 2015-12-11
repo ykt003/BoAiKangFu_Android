@@ -1,0 +1,110 @@
+package me.zhangls.rilintech.model;
+
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Model_one implements Parcelable{
+	private String groupid;
+	private String evaluation_person;
+	private String evaluation_time_note;
+	private String evaluation_time;
+
+	private boolean has_sum;
+	private boolean has_grade;
+
+	public boolean isHas_sum() {
+		return has_sum;
+	}
+
+	public void setHas_sum(boolean has_sum) {
+		this.has_sum = has_sum;
+	}
+
+	public boolean isHas_grade() {
+		return has_grade;
+	}
+
+	public void setHas_grade(boolean has_grade) {
+		this.has_grade = has_grade;
+	}
+
+	public static Creator<Model_one> getCREATOR() {
+		return CREATOR;
+	}
+
+	private ArrayList<Model_two> header_questions=new ArrayList<Model_two>();
+
+	@SuppressWarnings("unchecked")
+	public static final Creator<Model_one> CREATOR = new Creator<Model_one>() {
+		@Override
+		public Model_one createFromParcel(Parcel in) {
+			Model_one model_one=new Model_one();
+			model_one.groupid=in.readString();
+			model_one.evaluation_person=in.readString();
+			model_one.evaluation_time_note=in.readString();
+			model_one.evaluation_time=in.readString();
+			model_one.header_questions=in.readArrayList(Model_two.class.getClassLoader());
+			model_one.has_sum =in.readByte()!=0;
+			model_one.has_grade =in.readByte()!=0;
+			return model_one;
+		}
+
+		@Override
+		public Model_one[] newArray(int size) {
+			return new Model_one[size];
+		}
+	};
+
+	public String getGroupid() {
+		return groupid;
+	}
+	public void setGroupid(String groupid) {
+		this.groupid = groupid;
+	}
+	public String getEvaluation_person() {
+		return evaluation_person;
+	}
+	public void setEvaluation_person(String evaluation_person) {
+		this.evaluation_person = evaluation_person;
+	}
+	public String getEvaluation_time_note() {
+		return evaluation_time_note;
+	}
+	public void setEvaluation_time_note(String evaluation_time_note) {
+		this.evaluation_time_note = evaluation_time_note;
+	}
+	public String getEvaluation_time() {
+		return evaluation_time;
+	}
+	public void setEvaluation_time(String evaluation_time) {
+		this.evaluation_time = evaluation_time;
+	}
+	public List<Model_two> getHeader_questions() {
+		return header_questions;
+	}
+	public void setHeader_questions(ArrayList<Model_two> header_questions) {
+		this.header_questions = header_questions;
+	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+
+		dest.writeString(groupid);
+		dest.writeString(evaluation_person);
+		dest.writeString(evaluation_time_note);
+		dest.writeString(evaluation_time);
+		dest.writeList(header_questions);
+		dest.writeByte((byte) (isHas_sum() ? 1 : 0));
+		dest.writeByte((byte)(isHas_grade() ?1:0));
+
+	}
+
+}

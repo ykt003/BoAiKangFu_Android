@@ -1,0 +1,103 @@
+package me.zhangls.rilintech.activity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+import me.zhangls.rilintech.R;
+
+/**
+ * Created by zsn on 15/11/30.
+ */
+public class TableFlowChart extends  BaseActivity implements View.OnClickListener {
+    //基本信息
+    private TextView basic_information;
+    //评价量表
+    private TextView evaluation_scale;
+    //目标设定
+    private TextView target_set;
+    //康复计划
+    private TextView recovery_plan;
+    //治疗记录
+    private TextView treatment_record;
+    //疗效评估
+    private TextView efficacy_evaluation;
+    //回顾总结
+    private TextView review_summary;
+    //电子病例
+    private TextView electronic_case;
+    //实验室
+    private TextView laboratory;
+    //影像
+    private TextView image;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_flow_chart);
+        initView();
+        initListener();
+    }
+
+    private void initListener() {
+        basic_information.setOnClickListener(this);
+        evaluation_scale.setOnClickListener(this);
+        target_set.setOnClickListener(this);
+        recovery_plan.setOnClickListener(this);
+        treatment_record.setOnClickListener(this);
+        efficacy_evaluation.setOnClickListener(this);
+        review_summary.setOnClickListener(this);
+        electronic_case.setOnClickListener(this);
+        laboratory.setOnClickListener(this);
+        image.setOnClickListener(this);
+    }
+
+    private void initView() {
+        basic_information=(TextView)findViewById(R.id.basic_information);
+        evaluation_scale=(TextView)findViewById(R.id.evaluation_scale);
+        target_set=(TextView)findViewById(R.id.target_set);
+        recovery_plan=(TextView)findViewById(R.id.recovery_plan);
+        treatment_record=(TextView)findViewById(R.id.treatment_record);
+        efficacy_evaluation=(TextView)findViewById(R.id.efficacy_evaluation);
+        review_summary=(TextView)findViewById(R.id.review_summary);
+        electronic_case=(TextView)findViewById(R.id.electronic_case);
+        laboratory=(TextView)findViewById(R.id.laboratory);
+        image=(TextView)findViewById(R.id.image);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.basic_information:
+
+                break;
+            case R.id.evaluation_scale:
+
+                break;
+            case R.id.target_set:
+
+                break;
+            case R.id.recovery_plan:
+
+                break;
+            case R.id.treatment_record:
+
+                break;
+            case R.id.efficacy_evaluation:
+
+                break;
+            case R.id.review_summary:
+
+                break;
+            case R.id.electronic_case:
+
+                break;
+            case R.id.laboratory:
+
+                break;
+            case R.id.image:
+
+                break;
+        }
+    }
+}

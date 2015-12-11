@@ -1,0 +1,2587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/tittle_height"
+        android:background="@color/background">
+
+        <ImageView
+            android:id="@+id/tittle_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/tittle_marginLeft"
+            android:src="@drawable/medical_history_record_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Alyn 水中适应性测试量表(WOTA2)"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tittle_textsize" />
+
+        <ImageView
+            android:id="@+id/patient_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/tittle_marginRight"
+            android:src="@drawable/edit"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/patient_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/tittle_marginRight"
+            android:src="@drawable/save" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/table_index_top"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:scrollbars="none"
+        android:scrollbarStyle="outsideOverlay">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="35dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn1_date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_date"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_16" />
+
+                <TextView
+                    android:id="@+id/alyn2_date_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:background="@drawable/sousuo_et_bg"
+                    android:gravity="center_vertical"
+                    android:inputType="textCapSentences"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_instructions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_instructions"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <Spinner
+                    android:id="@+id/medical_history_relator_edit"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:background="@drawable/sousuo_et_bg"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title1"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title1_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title1_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—害怕/哭泣/抗拒"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title1_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—漠不关心"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title1_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="2—稍有迟疑，喜欢一些水中活动（在水中不睁眼，脱离有困难"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title1_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:text="3—高兴，放松（在水中睁开眼睛，从指导者处脱离）"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title2"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title2_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title2_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title2_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title2_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—低质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title2_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—中质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title2_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—高质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title3"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title3_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title3_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title3_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title3_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—低质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title3_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—中质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title3_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—高质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title4"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title4_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title4_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title4_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title4_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—低质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title4_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—中质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title4_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—高质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title5"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title5_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title5_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title5_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title5_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—低质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title5_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—中质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title5_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—高质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title6"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title6_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title6_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title6_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title6_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—低质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title6_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—中质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title6_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—高质量表现"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title7"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title7_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title7_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title7_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title7_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title7_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title7_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title8"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title8_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title8_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title8_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title8_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title8_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title8_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title9"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title9_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title9_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title9_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title9_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title9_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title9_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title10"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title10_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title10_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title10_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title10_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title10_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title10_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title11"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title11_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title11_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title11_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title11_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title11_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title11_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title12"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title12_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title12_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title12_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title12_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title12_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title12_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title13"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title13"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title13_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title13_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title13_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title13_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title13_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title13_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title14"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title14_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title14_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title14_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title14_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title14_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title14_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title15"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title15"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title15_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title15_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title15_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title15_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title15_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title15_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title16"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title16_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title16_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title16_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title16_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title16_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title16_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title17"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title17"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title17_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title17_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title17_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title17_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title17_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title17_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title18"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title18"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title18_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title18_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title18_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title18_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title18_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title18_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title19"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title19"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title19_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title19_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title19_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title19_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title19_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title19_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title20"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title20_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title20_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title20_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title20_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title20_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title20_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title21"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title21"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title21_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title21_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title21_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title21_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title21_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title21_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title22"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title22"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title22_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title22_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title22_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title22_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title22_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title22_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title23"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title23"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title23_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title23_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title23_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title23_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—在治疗师的最大支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title23_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—在治疗师的部分支持下完成任务"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title23_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—独立完成任务，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title24"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title24"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title24_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title24_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title24_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title24_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—游泳20米，中途休息3~7次或以上"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title24_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—游泳20米，中途休息1~2次"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title24_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—游泳20米，连续游进，中途不停顿，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title25"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title25"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title25_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title25_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title25_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title25_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—游泳20米，中途休息3~7次或以上"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title25_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—游泳20米，中途休息1~2次"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title25_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—游泳20米，连续游进，中途不停顿，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title26"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title26"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title26_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title26_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title26_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title26_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—游泳20米，中途休息3~7次或以上"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title26_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—游泳20米，中途休息1~2次"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title26_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—游泳20米，连续游进，中途不停顿，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <TwoLineListItem
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_text" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_title27"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn2_title27"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16" />
+
+                <RadioGroup
+                    android:id="@+id/alyn2_title27_rg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15">
+
+                    <RadioButton
+
+                        android:id="@+id/alyn2_title27_rb1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X—无法评定"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title27_rb2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0—不执行或看起来能够执行但不配合"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title27_rb3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1—游泳20米，中途休息3~7次或以上"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title27_rb4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2—游泳20米，中途休息1~2次"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <RadioButton
+                        android:id="@+id/alyn2_title27_rb5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3—游泳20米，连续游进，中途不停顿，应在注释栏记下游泳者是否需要密切监督"
+                        android:textColor="@color/gray"
+                        android:button="@drawable/radiobutton_selector"
+                        android:padding="5dp"
+                        android:textSize="@dimen/text_size_15" />
+
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_total_scores"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:width="150dp"
+                    android:text="@string/alyn1_total_scores"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/alyn2_total_scores_bt"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/index_layout_marginLeft"
+                    android:text="@string/alyn1_total_scores"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_15" />
+
+                <TextView
+                    android:id="@+id/alyn2_total_scores_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/sousuo_et_bg"
+                    android:gravity="center_vertical"
+                    android:inputType="textCapSentences"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/alyn2_total_scores_centesmal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="150dp"
+                    android:text="@string/alyn1_total_scores_centesmal"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_16"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/alyn2_total_scores_centesmal_bt"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_border"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/index_layout_marginLeft"
+                    android:text="@string/alyn1_total_scores_centesmal"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_15" />
+
+                <TextView
+                    android:id="@+id/alyn2_total_scores_centesmal_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="28dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/sousuo_et_bg"
+                    android:gravity="center_vertical"
+                    android:inputType="textCapSentences"
+                    android:paddingLeft="5dp"
+                    android:singleLine="true"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
+<!-- From: file:/Users/rilintech/Desktop/AndroidStudioProjects/beijing_boaikangfu_android_new/app/src/main/res/layout/activity_table_alyn_info2.xml -->

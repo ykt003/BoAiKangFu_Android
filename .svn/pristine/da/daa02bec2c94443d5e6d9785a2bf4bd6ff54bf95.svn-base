@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="90"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_margin="26dp"
+        android:gravity="center"
+        android:text="欢迎进入综合康复信息系统"
+        android:textColor="@color/background"
+        android:textSize="36sp"
+        android:textStyle="italic|bold" />
+
+     <TextView
+         android:id="@+id/line"
+         android:layout_width="fill_parent"
+         android:layout_weight="0.5"
+         android:layout_height="2dp"
+         android:background="@color/background"
+
+         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="9.5"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@color/background"
+        android:text="版权所有：北京瑞林萨尔科技有限公司"
+        android:textSize="@dimen/text_size_15"/>
+
+</LinearLayout>
+<!-- From: file:/Users/rilintech/Desktop/AndroidStudioProjects/beijing_boaikangfu_android_new/app/src/main/res/layout/activity_loading.xml -->

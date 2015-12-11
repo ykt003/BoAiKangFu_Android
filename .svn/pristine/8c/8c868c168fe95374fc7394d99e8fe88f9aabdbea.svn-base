@@ -1,0 +1,5 @@
+int attr isdynamic 0x7f010001
+int attr point_color 0x7f010000
+int[] styleable SpinnerLoader { 0x7f010000, 0x7f010001 }
+int styleable SpinnerLoader_isdynamic 1
+int styleable SpinnerLoader_point_color 0

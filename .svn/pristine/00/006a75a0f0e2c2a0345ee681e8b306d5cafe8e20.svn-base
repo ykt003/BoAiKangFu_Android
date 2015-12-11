@@ -1,0 +1,2202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gpb="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/layout"
+        layout="@layout/application_title_layout_info" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_below="@+id/table_index_top"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:clipToPadding="true"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/marginTop"
+                android:orientation="vertical"
+                android:paddingBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_date"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/app_date"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <TextView
+                        android:id="@+id/date_tv"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:background="@drawable/sousuo_et_bg"
+                        android:gravity="center_vertical"
+                        android:inputType="textCapSentences"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_instructions"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/app_instruction"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <Spinner
+                        android:id="@+id/spinner_edit"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:background="@drawable/sousuo_et_bg"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_16" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:text="@string/fim_part1"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15"
+                    android:textStyle="bold" />
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fim_part1_1"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question1"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question1_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question2"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question2_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question3"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question3_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question4"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question4_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question5"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question5_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question6"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question6"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question6_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fim_part1_2"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question7"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question7_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question8"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question8_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fim_part1_3"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question9"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question9"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question9_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question10"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question10_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question11"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question11_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fim_part1_4"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question12"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question12_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question13"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question13"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question13_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fim_part2"
+                    android:textColor="@color/gray"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:textSize="@dimen/text_size_15"
+                    android:textStyle="bold" />
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fim_part2_5"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question14"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question14"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question14_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question15"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question15"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question15_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+
+
+                <TwoLineListItem
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_text" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fim_part2_6"
+                    android:textColor="@color/gray"
+                    android:textSize="@dimen/text_size_15"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question16"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question16"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question16_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question17"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question17"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question17_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <TwoLineListItem
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="@color/gray_text" />
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/fim_question18"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:text="@string/fim_question18"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_16" />
+
+                    <RadioGroup
+                        android:id="@+id/fim_question18_rg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:width="150dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="1"
+                            android:text="@string/fim_answer1"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="2"
+                            android:text="@string/fim_answer2"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="3"
+                            android:text="@string/fim_answer3"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="4"
+                            android:text="@string/fim_answer4"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="5"
+                            android:text="@string/fim_answer5"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="6"
+                            android:text="@string/fim_answer6"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/radiobutton_selector"
+                            android:padding="5dp"
+                            android:tag="7"
+                            android:text="@string/fim_answer7"
+                            android:textColor="@color/gray"
+                            android:textSize="@dimen/text_size_15" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/marginTop"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/total_scores_a_bt"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_border"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/index_layout_marginLeft"
+                        android:text="@string/fim_part1_score"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <TextView
+                        android:id="@+id/fim_part1_score"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/sousuo_et_bg"
+                        android:gravity="center_vertical"
+                        android:inputType="textCapSentences"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/marginTop"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/total_scores_e_bt"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_border"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/index_layout_marginLeft"
+                        android:text="@string/fim_part2_score"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <TextView
+                        android:id="@+id/fim_part2_score"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/sousuo_et_bg"
+                        android:gravity="center_vertical"
+                        android:inputType="textCapSentences"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/marginTop"
+                    android:layout_marginTop="@dimen/marginTop"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/total_scores_all_bt"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_border"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="@dimen/index_layout_marginLeft"
+                        android:text="@string/fim_total_score"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_15" />
+
+                    <TextView
+                        android:id="@+id/fim_total_score"
+                        android:layout_width="0dp"
+                        android:layout_height="28dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/sousuo_et_bg"
+                        android:gravity="center_vertical"
+                        android:inputType="textCapSentences"
+                        android:paddingLeft="5dp"
+                        android:singleLine="true"
+                        android:textColor="@color/gray"
+                        android:textSize="@dimen/text_size_15" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <me.zhangls.rilintech.view.googleprogressbar.GoogleProgressBar
+            android:id="@+id/google_progress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            gpb:type="folding_circles" />
+    </FrameLayout>
+
+</LinearLayout>

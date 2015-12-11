@@ -1,0 +1,203 @@
+package me.zhangls.rilintech.model;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 康复评价会记录表所有item集合
+ */
+public class NormalTableRehabilitationEvaluationManager {
+
+    public static ArrayList<NormalTableModel> scaleList = new ArrayList<>();
+    public static NormalTableModel scaleTbaleModel;
+    public static ArrayList<String> list_ll;
+    private static String TEXTVIEW = "Textview";
+    private static String SPINNER = "Spinner";
+    private static String RADIOGROUP = "Radiogroup";
+    private static String MAXTEXT = "Maxtext";
+    private static String EDITTEXT = "Edittext";
+
+    public static ArrayList<NormalTableModel> getTableItemList() {
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("评价次数");
+        scaleTbaleModel.setType(EDITTEXT);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("评价说明");
+        scaleTbaleModel.setType(SPINNER);
+        list_ll = new ArrayList<>();
+        list_ll.add("");
+        list_ll.add("初期评定");
+        list_ll.add("中期评定");
+        list_ll.add("末期评定");
+        scaleTbaleModel.setDicText(list_ll);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("评价地点");
+        scaleTbaleModel.setType(EDITTEXT);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("评价时间");
+        scaleTbaleModel.setType(TEXTVIEW);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("参加人员");
+        scaleTbaleModel.setType(MAXTEXT);
+        list_ll = new ArrayList<>();
+        list_ll.add("主任医师:");
+        list_ll.add("副主任医师:");
+        list_ll.add("主管医师:");
+        list_ll.add("主治医师:");
+        list_ll.add("住院医师:");
+        list_ll.add("康复护士:");
+        list_ll.add("物理治疗师:");
+        list_ll.add("作业治疗师:");
+        list_ll.add("言语治疗师:");
+        scaleTbaleModel.setDicText(list_ll);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("患者病情及诊断");
+        scaleTbaleModel.setType(MAXTEXT);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("护理相关问题 ");
+        scaleTbaleModel.setType(MAXTEXT);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("物理治疗师意见 ");
+        scaleTbaleModel.setType(MAXTEXT);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("作业治疗师意见 ");
+        scaleTbaleModel.setType(MAXTEXT);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("其他治疗师意见(言语、理疗、文体、心理) ");
+        scaleTbaleModel.setType(MAXTEXT);
+        scaleList.add(scaleTbaleModel);
+
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("康复医师意见 ");
+        scaleTbaleModel.setType(MAXTEXT);
+        scaleList.add(scaleTbaleModel);
+
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("上级医师指导意见 ");
+        scaleTbaleModel.setType(MAXTEXT);
+        scaleList.add(scaleTbaleModel);
+
+
+        return  scaleList;
+
+
+    }
+
+    public NormalTableModel scaleTbaleModel2;
+
+    public void manage2() {
+        scaleTbaleModel2 = new NormalTableModel();
+        scaleTbaleModel2.setLeftText("评价地点");
+        scaleTbaleModel2.setType("text");
+        scaleList.add(scaleTbaleModel2);
+        scaleTbaleModel2 = new NormalTableModel();
+        scaleTbaleModel2.setLeftText("评价时间");
+        scaleTbaleModel2.setType("text");
+        scaleList.add(scaleTbaleModel2);
+    }
+
+    public NormalTableModel scaleTbaleModel3;
+    public List<String> list_kk;
+
+    public void manage3() {
+        scaleTbaleModel = new NormalTableModel();
+        scaleTbaleModel.setLeftText("参加人员");
+        scaleTbaleModel.setType("Maxtext");
+        list_kk = new ArrayList<String>();
+        list_kk.add("主任医师:");
+        list_kk.add("副主任医师:");
+        list_kk.add("主管医师:");
+        list_kk.add("主治医师:");
+        list_kk.add("住院医师:");
+        list_kk.add("康复护士:");
+        list_kk.add("物理治疗师:");
+        list_kk.add("作业治疗师:");
+        list_kk.add("言语治疗师:");
+        scaleTbaleModel3.setDicText(list_kk);
+        scaleList.add(scaleTbaleModel3);
+    }
+
+    public NormalTableModel scaleTbaleModel4;
+
+    public void manage4() {
+        scaleTbaleModel4 = new NormalTableModel();
+        scaleTbaleModel4.setLeftText("患者病情及诊断");
+        scaleTbaleModel4.setType("text");
+        scaleList.add(scaleTbaleModel4);
+    }
+
+    public NormalTableModel scaleTbaleModel5;
+
+    public void manage5() {
+        scaleTbaleModel5 = new NormalTableModel();
+        scaleTbaleModel5.setLeftText("护理相关问题 ");
+        scaleTbaleModel5.setType("text");
+        scaleList.add(scaleTbaleModel5);
+    }
+
+    public NormalTableModel scaleTbaleModel6;
+
+    public void manage6() {
+        scaleTbaleModel6 = new NormalTableModel();
+        scaleTbaleModel6.setLeftText("物理治疗师意见 ");
+        scaleTbaleModel6.setType("text");
+        scaleList.add(scaleTbaleModel6);
+    }
+
+    public NormalTableModel scaleTbaleModel7;
+
+    public void manage7() {
+        scaleTbaleModel7 = new NormalTableModel();
+        scaleTbaleModel7.setLeftText("作业治疗师意见 ");
+        scaleTbaleModel7.setType("text");
+        scaleList.add(scaleTbaleModel7);
+    }
+
+    public NormalTableModel scaleTbaleModel8;
+
+    public void manage8() {
+        scaleTbaleModel8 = new NormalTableModel();
+        scaleTbaleModel8.setLeftText("其他治疗师意见(言语、理疗、文体、心理) ");
+        scaleTbaleModel8.setType("text");
+        scaleList.add(scaleTbaleModel8);
+    }
+
+    public NormalTableModel scaleTbaleModel9;
+
+    public void manage9() {
+        scaleTbaleModel9 = new NormalTableModel();
+        scaleTbaleModel9.setLeftText("康复医师意见 ");
+        scaleTbaleModel9.setType("text");
+        scaleList.add(scaleTbaleModel9);
+    }
+
+    public NormalTableModel scaleTbaleModel10;
+
+    public void manage10() {
+        scaleTbaleModel10 = new NormalTableModel();
+        scaleTbaleModel10.setLeftText("上级医师指导意见 ");
+        scaleTbaleModel10.setType("text");
+        scaleList.add(scaleTbaleModel10);
+    }
+}

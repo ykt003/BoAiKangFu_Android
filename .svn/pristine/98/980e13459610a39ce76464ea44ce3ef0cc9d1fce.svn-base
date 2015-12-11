@@ -1,0 +1,145 @@
+package me.zhangls.rilintech.activity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import me.zhangls.rilintech.R;
+import me.zhangls.rilintech.adapter.SpinnerBaseAdapter;
+import me.zhangls.rilintech.adapter.TableInfoRadioGroupAdapter;
+import me.zhangls.rilintech.model.Model_one;
+import me.zhangls.rilintech.pickertimelib.TimePopupWindow;
+
+/**
+ * Created by zsn on 15/11/11.
+ */
+public class TableChildInfoActivity extends TableParentInfoActivity {
+
+    //添加时，传递过来的评定说明集合
+    private ArrayList<String> lists_note;
+    //添加时，传递过来的所有数据集合
+    private ArrayList<Model_one> list_infos;
+    //是否是添加
+    public static boolean isAdd=true;
+    //选中的评定说明,日期和评定人
+    private String instructions_value,instructions_date,instructions_person;
+    private List<String> delList=new ArrayList<>();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //获取传递的特殊数据
+        Bundle bundle=getIntent().getExtras();
+        lists_note = bundle.getStringArrayList("lists_note");
+        list_infos=bundle.getParcelableArrayList("list_infos");
+        instructions_value=bundle.getString("instructions_value");
+        instructions_date=bundle.getString("date");
+        instructions_person=bundle.getString("maker");
+
+        initData();
+        initListener();
+    }
+
+    private void initListener() {
+
+        key_back.setOnClickListener(this);
+        //保存
+        key_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+        date_tv.setOnClickListener(this);
+        pwTime.setOnTimeSelectListener(new TimePopupWindow.OnTimeSelectListener() {
+            @Override
+            public void onTimeSelect(Date date) {
+                date_tv.setText(getTime(date));
+            }
+        });
+        pwTime.setCyclic(true);
+
+
+
+    }
+
+    @Override
+    public void initData() {
+         //标题
+        if(isAdd){
+            title_name.setText("添加");
+            //spinner中的数据
+            for (String s : arr_instructions) {
+                list_s.add(s);
+                delList.add(s);
+            }
+            for(String note:lists_note){
+                if(list_s.contains(note)){
+                    list_s.remove(note);
+                    delList.remove(note);
+                }
+            }
+        }else{
+            title_name.setText("编辑");
+            instructions.setClickable(isAdd);
+            isAdd=true;
+            delList.addAll(list_s);
+            delList.clear();
+            delList.add(instructions_value);
+            //初始化编辑的数据
+            initEditData();
+        }
+
+
+        SpinnerBaseAdapter adapter = new SpinnerBaseAdapter(this, android.R.layout.simple_spinner_item, instructions, delList);
+        adapter.setDropDownViewResource(R.layout.item_spinner_layout);
+        instructions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spinner_value = delList.get(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        instructions.setAdapter(adapter);
+
+        if("添加".equals(title_name.getText().toString().trim())){
+            //添加
+            //listview 初始化
+            list_view.setAdapter(new TableInfoRadioGroupAdapter(TableChildInfoActivity.this, list_infos.get(0)));
+        }else if("编辑".equals(title_name.getText().toString().trim())){
+            //编辑
+            list_view.setAdapter(new TableInfoRadioGroupAdapter(TableChildInfoActivity.this,list_infos,instructions_value));
+        }
+    }
+
+    /**
+     * 编辑时显示的数据
+     */
+    private void initEditData() {
+        person.setText(instructions_person);
+        date_tv.setText(instructions_date);
+    }
+
+    /**
+     * 获取系统当前时间
+     *
+     * @param date
+     * @return
+     */
+    public static String getTime(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        return format.format(date);
+    }
+
+}

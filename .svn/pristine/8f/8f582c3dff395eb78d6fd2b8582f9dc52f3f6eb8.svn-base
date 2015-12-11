@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <string-array name="date">
+        <item>沙门氏菌性关节炎</item>
+        <item>沙门氏菌性脑膜炎</item>
+        <item>沙门氏菌性骨髓炎</item>
+        <item>结核性脑脊髓膜炎</item>
+        <item>结核性脑膜炎</item>
+        <item>结核性脊膜炎</item>
+        <item>结核性蛛网膜炎</item>
+        <item>结核性柔脑膜炎</item>
+        <item>脑膜结核瘤</item>
+        <item>脑脊膜核瘤</item>
+        <item>结核性脑膜脑炎</item>
+        <item>结核性脑脓肿</item>
+        <item>结核性脑肉芽肿</item>
+        <item>结核性脑炎</item>
+        <item>结核性脑脊髓膜炎(硬脊膜外)</item>
+        <item>脑结核瘤</item>
+        <item>中枢神经系统结核</item>
+        <item>结核性脊髓炎</item>
+        <item>脊髓结核病</item>
+        <item>结核性多神经病</item>
+        <item>神经系统结核病 NOS</item>
+        <item>颈椎结核</item>
+        <item>肩关节结核</item>
+        <item>腕关节结核</item>
+        <item>胸椎结核</item>
+        <item>腰椎结核</item>
+        <item>跖趾关节结核</item>
+
+    </string-array>
+
+</resources>

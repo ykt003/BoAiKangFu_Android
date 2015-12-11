@@ -1,0 +1,42 @@
+
+1.	登录（异步线程）
+
+a. 登录前检查用户名和密码是否为空
+
+b. 联网登录，是否有链接网络，无则返回提示，是否前往网络设置
+
+c. 长时间联网不成功，返回联网超时提示，可以重新尝试连接
+
+d. 联网成功，返回响应码500，用户名或密码错误；404，用户不存在；200，登录成功并保存当前用户的用户名和密码，跳转到首页
+
+==========================================================================================
+
+2015-10-13  杨磊
+1.粗大运动功能评估量表（gmfm）中有计分的需求，以前用的是实例化每个radiogroup和其里面的radiobutton，
+    从而监听每个选项，获得每次改变后的分值。这次没用使用以前的方法，而是值实例化radiogroup，根据它的一个静态方法
+    radiogroup.getCheckedRadioButtonId()就可以获得当前选中的View的ID，在根据方法findViewById()，就获得了
+    当前选中的View，在之前布局时已经给每个radiobutton设置了tag() 属性，作为分值，View.getTag()就是当前的分数了。
+2.由于有多个radiogroup，所以放到了list集合里边，直接遍历监听
+3.设计到给没给radiogroup赋值问题，选择了
+            //遍历所有的RadioGroup
+            for (int j = 0; j < list_radioGroup.size(); j++) {
+                ///遍历这个RadioGroup下所有的View
+                for (int i = 0; i < list_radioGroup.get(j).getChildCount(); i++) {
+                    //得到当前遍历到得View
+                    View view = list_radioGroup.get(j).getChildAt(i);
+                    //如果View是RadioGroup
+                    if (view instanceof RadioButton) {
+                        //并且它的Tag值与给定的分值相等
+                        if (view.getTag().equals(info.getList_scores().get(j).toString())) {
+                            //则选中这个View
+                            ((RadioButton) view).setChecked(true);
+                        }
+                    }
+                }
+            }
+4.因为控件较多，跳转回卡顿，所以在跳转前线让progressbar属性设置为visible
+    在activity调用onWindowFocusChanged()是异步加载上布局可以，但是progressBar不显示，所以弃用了
+====================================================================================================
+2015-10-15
+
+1.功能独立性评定量表(FIM)

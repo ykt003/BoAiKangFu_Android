@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:background="@color/white"
+    android:orientation="vertical">
+   <!-- <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tittle_height"
+        android:background="@color/background"
+        >
+        <ImageView
+            android:id="@+id/title_bar_left_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_profile"
+            />
+
+        <TextView
+            android:id="@+id/title_common_use"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/tittle_patient_info"
+            android:textColor="@color/white"
+            android:textSize="@dimen/tittle_textsize"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/patient_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/tittle_marginRight"
+            android:src="@drawable/add"
+            android:visibility="gone"/>
+    </RelativeLayout>-->
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+    </FrameLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1.0dp"
+        android:background="@color/textcolor"></View>
+
+    <RadioGroup
+        android:id="@+id/rg_tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_weibo_listab"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_attention"
+            style="@style/weibo_tab"
+            android:drawableTop="@drawable/weibolist_attention_selector"
+            android:text="患者信息" />
+
+
+        <RadioButton
+            android:id="@+id/rb_mylist"
+            style="@style/weibo_tab"
+            android:drawableTop="@drawable/weibolist_mylist_selector"
+            android:text="就诊记录" />
+
+        <RadioButton
+            android:id="@+id/rb_global"
+            style="@style/weibo_tab"
+            android:drawableTop="@drawable/weibolist_global_selector"
+            android:text="量表信息" />
+    </RadioGroup>
+</LinearLayout>
+<!-- From: file:/Users/rilintech/Desktop/AndroidStudioProjects/beijing_boaikangfu_android_new/app/src/main/res/layout/activity.xml -->

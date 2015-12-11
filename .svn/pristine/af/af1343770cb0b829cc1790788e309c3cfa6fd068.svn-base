@@ -1,0 +1,82 @@
+package me.zhangls.rilintech.activity;
+
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageView;
+
+import com.umeng.fb.fragment.FeedbackFragment;
+
+import me.zhangls.rilintech.R;
+import me.zhangls.rilintech.utils.SystemBarTintManager;
+
+/**
+ * Created by YANG on 15/12/7.
+ */
+public class FeedBackActivity extends FragmentActivity implements View.OnClickListener {
+
+    private FeedbackFragment mFeedbackFragment;
+    private ImageView back_image_view;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            //透明状态栏
+            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            // 创建状态栏的管理实例
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            // 激活状态栏设置
+            tintManager.setStatusBarTintEnabled(true);
+            // 设置一个状态栏资源
+            tintManager.setStatusBarTintColor(0xff56abe4);
+        }
+
+        setContentView(R.layout.activity_feed_back);
+
+        if (savedInstanceState == null) {
+            // Create the detail fragment and add it to the activity
+            // using a fragment transaction.
+            String conversation_id = getIntent().getStringExtra(FeedbackFragment.BUNDLE_KEY_CONVERSATION_ID);
+            mFeedbackFragment = FeedbackFragment.newInstance(conversation_id);
+
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, mFeedbackFragment)
+                    .commit();
+        }
+
+
+        back_image_view = (ImageView) findViewById(R.id.back);
+        back_image_view.setOnClickListener(this);
+
+    }
+
+    @Override
+    protected void onNewIntent(android.content.Intent intent) {
+        mFeedbackFragment.refresh();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back:
+                this.finish();
+                break;
+        }
+    }
+}
